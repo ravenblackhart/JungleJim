@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private float jumpforce;
     [SerializeField] private float movmentSpeed;
     private Rigidbody2D rb2d;
     private float horizontalMovment;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Grab and swing");
+           //jump
         }
     }
 
