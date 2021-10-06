@@ -847,8 +847,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mainCamera: {fileID: 1622221525}
-  lineRenderer: {fileID: 0}
-  distanceJoint: {fileID: 0}
+  lineRenderer: {fileID: 1829172542}
+  distanceJoint: {fileID: 1829172543}
 --- !u!120 &1829172542
 LineRenderer:
   m_ObjectHideFlags: 0
