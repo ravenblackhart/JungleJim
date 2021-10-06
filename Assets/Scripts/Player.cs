@@ -1,39 +1,68 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float jumpforce;
-    [SerializeField] private float movmentSpeed;
-    private Rigidbody2D rb2d;
-    private float horizontalMovment;
-    private bool grab;
+  [SerializeField] private float movmentSpeed;
+  [SerializeField] private float jumpForce;
+  [SerializeField] private float checkRadius;
+  [SerializeField] private LayerMask groundObject;
+  [SerializeField] private Transform groundCheck;
+  
+  
+  private Rigidbody2D rb;
+  private bool isJumping = false;
+  private bool facingRight = true;
+  private bool isGrounded;
+  private float horizontalMovment;
+
+  private void Awake()
+  {
+    rb = GetComponent<Rigidbody2D>();
+  }
+
+  private void Start()
+  {
     
-    void Start()
+  }
+
+  private void Update()
+  {
+    horizontalMovment = Input.GetAxis("Horizontal");
+    if (Input.GetButtonDown("Jump") && isGrounded)
     {
-        rb2d = GetComponent<Rigidbody2D>();
+      isJumping = true;
+      Debug.Log(isJumping);
     }
 
-    // Update is called once per frame
-    void Update()
+    if (horizontalMovment > 0 && !facingRight)
     {
-        horizontalMovment = Input.GetAxis("Horizontal");
-        
-        if (horizontalMovment != 0)
-        {
-            transform.position += new Vector3(horizontalMovment, 0, 0) * Time.deltaTime * movmentSpeed;
-        }
-        else
-        {
-            transform.position += new Vector3(0, 0, 0);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-           //jump
-        }
+      flipCharacter();
     }
+    else if (horizontalMovment < 0 && facingRight)
+    {
+      flipCharacter();
+    }
+    
+  }
 
+  private void FixedUpdate()
+  {
+    isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundObject);
+    
+    rb.velocity = new Vector2(horizontalMovment * movmentSpeed, rb.velocity.y);
+    if (isJumping)
+    {
+      rb.AddForce(new Vector2(0f,jumpForce * 5));
+    }
+    isJumping = false;
+  }
+
+  private void flipCharacter()
+  {
+    facingRight = !facingRight;
+    transform.Rotate(0,180,0);
+  }
 }
