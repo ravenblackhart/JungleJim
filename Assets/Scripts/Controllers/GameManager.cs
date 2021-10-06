@@ -43,24 +43,24 @@ public class GameManager : MonoBehaviour
        
         #endregion
 
-        #region PlayerController
-
-        if (SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            GameObject[] mpc = GameObject.FindGameObjectsWithTag("Player");
-            if (mpc.Length > 1)
-            {
-                for (int i = 1; i < mpc.Length; i++)
-                {
-                    Destroy(mpc[i]);
-                }
-            }
-            else if (mpc.Length < 1)
-            {
-                Instantiate(player);
-            }
-        }
-        #endregion
+        // #region PlayerController
+        //
+        // if (SceneManager.GetActiveScene().buildIndex != 0)
+        // {
+        //     GameObject[] mpc = GameObject.FindGameObjectsWithTag("Player");
+        //     if (mpc.Length > 1)
+        //     {
+        //         for (int i = 1; i < mpc.Length; i++)
+        //         {
+        //             Destroy(mpc[i]);
+        //         }
+        //     }
+        //     else if (mpc.Length < 1)
+        //     {
+        //         Instantiate(player);
+        //     }
+        // }
+        // #endregion
 
     }
 }
