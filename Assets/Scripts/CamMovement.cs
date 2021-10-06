@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class CamMovement : MonoBehaviour
 {
-    // public float moveSpeed = 1f;
     public Transform targetPlayer;
-    public float speedAcc;
-    // public float distanceToPlayer;
-    // public Transform targetStart;
+    public float speedAcc = 1f;
+
 
     private void FixedUpdate()
+
+        // If player is in front of the camera the camera will follow the player otherwise it will accellerate.
     {
         if (targetPlayer.transform.position.x > transform.position.x)
         {
@@ -16,15 +16,9 @@ public class CamMovement : MonoBehaviour
         }
         else Accellerate();
 
+        //Cam accelleration value
+        speedAcc += 1 * Time.deltaTime;
 
-
-        // if (Vector2.Distance(targetPlayer.position, transform.position) > distanceToPlayer)
-        // {
-        //     followPlayer();
-        // }
-        // else Accellerate();
-        // float traveledDistance = Vector3.Distance(targetStart.position, targetPlayer.position);
-        // Debug.Log(traveledDistance);
     }
 
 
@@ -34,7 +28,7 @@ public class CamMovement : MonoBehaviour
         Vector3 newPosition = new Vector3(targetPlayer.position.x, transform.position.y, transform.position.z);
         transform.position = newPosition;
 
-        // transform.position = Vector3.Lerp(transform.position, newPosition, moveSpeed * Time.deltaTime);
+
 
     }
 
