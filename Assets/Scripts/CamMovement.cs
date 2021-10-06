@@ -4,7 +4,7 @@ public class CamMovement : MonoBehaviour
 {
     public Transform targetPlayer;
     public float speedAcc = 1f;
-
+    public float speedAccInc = 0.01f;
 
     private void FixedUpdate()
 
@@ -17,7 +17,7 @@ public class CamMovement : MonoBehaviour
         else Accellerate();
 
         //Cam accelleration value
-        speedAcc += 1 * Time.deltaTime;
+        speedAcc += speedAccInc * Time.deltaTime;
 
     }
 

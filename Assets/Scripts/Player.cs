@@ -39,11 +39,11 @@ public class Player : MonoBehaviour
 
     if (horizontalMovment > 0 && !facingRight)
     {
-      flipCharacter();
+      FlipCharacter();
     }
     else if (horizontalMovment < 0 && facingRight)
     {
-      flipCharacter();
+      FlipCharacter();
     }
     
   }
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     isJumping = false;
   }
 
-  private void flipCharacter()
+  private void FlipCharacter()
   {
     facingRight = !facingRight;
     transform.Rotate(0,180,0);
