@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 7e3522e41c877774c9334ff83166a6fc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Jackazz
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4cf231bbd40826045991dc2f2c5949fd, type: 3}
+  - {fileID: 12800000, guid: 0d66408516d2f7f4f86e5f639c28b772, type: 3}
+  - {fileID: 12800000, guid: 9c4c7f955d8d519449048913485f45ae, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
