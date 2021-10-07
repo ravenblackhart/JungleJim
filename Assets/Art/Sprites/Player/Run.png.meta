@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1552331cbc45c4f43932e753540d701a
+guid: 2ff440a117a4b424db8a326a6c8d0ca8
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 2833043080597125133
     second: Run_4
+  - first:
+      213: -2217414122262695004
+    second: Run_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -61,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -146,9 +149,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1079.5
-        width: 1920
-        height: 1079.5
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +169,10 @@ TextureImporter:
       name: Run_1
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 1079.5
-        width: 1920
-        height: 1079.5
+        x: 300
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +190,10 @@ TextureImporter:
       name: Run_2
       rect:
         serializedVersion: 2
-        x: 3840
-        y: 1079.5
-        width: 1920
-        height: 1079.5
+        x: 600
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,10 +211,10 @@ TextureImporter:
       name: Run_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.5
-        width: 1920
-        height: 1079.5
+        x: 900
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +232,10 @@ TextureImporter:
       name: Run_4
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0.5
-        width: 1920
-        height: 1079.5
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,6 +245,27 @@ TextureImporter:
       bones: []
       spriteID: d08be54fbadf05720800000000000000
       internalID: 2833043080597125133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3f89aaa992a31e0800000000000000
+      internalID: -2217414122262695004
       vertices: []
       indices: 
       edges: []
