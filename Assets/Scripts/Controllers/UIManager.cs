@@ -77,8 +77,9 @@ public class UIManager : MonoBehaviour
     {
         settingsPanel.enabled = false;
         creditsPanel.enabled = true;
-    } 
-    public void ClosePanel() => this.transform.parent.GetComponent<Canvas>().enabled = false; 
+    }
+
+    public void ClosePanel() => this.transform.parent.gameObject.SetActive(false); 
 
     #endregion
     
