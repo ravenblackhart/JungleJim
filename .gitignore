@@ -2,6 +2,9 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+#------------------------
+# Unity Ignores Default
+#------------------------
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -58,8 +61,19 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-*Rider
+#============================
+# Unity : User-Defined
+#============================
 
+#Ignore User Settings Folder
+/[Uu]ser[Ss]ettings/
+
+#EditorUserSettings Ignore
+EditorUserSettings.asset
+
+#-------------------------------------
+#resharper : Rider Default Ignores
+#-------------------------------------
 # Common IntelliJ Platform excludes
 
 # User specific
@@ -94,4 +108,3 @@ _UpgradeReport_Files/
 Thumbs.db
 Desktop.ini
 .DS_Store
-
