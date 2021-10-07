@@ -1,14 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
 public class UIManager : MonoBehaviour
 {
     #region Inspector
+
+    [SerializeField] private Canvas homeScreen;
+    [SerializeField] private Canvas gameScreen;
 
     [Header("Main Menu - Buttons")]
     [SerializeField] private Button playButton;
@@ -24,7 +29,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas leaderboardPanel;
 
     [Header("In-game UI - HUD")] 
-    [SerializeField] private TextMeshProUGUI distance;
+    [SerializeField] private Canvas HUD;
+    [SerializeField] private TextMeshProUGUI DistanceText;
     
     [Header("In-game UI - Buttons")]
     [SerializeField] private Button pauseButton;
@@ -35,18 +41,51 @@ public class UIManager : MonoBehaviour
     [Header("In-game UI - Canvases")]
     [SerializeField] private Canvas pausePanel;
     [SerializeField] private Canvas gameOverPanel;
+    [SerializeField] private TextMeshProUGUI FinalScoreText;
 
     #endregion
 
+    void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "0_MainMenu")
+        {
+            settingsPanel.enabled = false;
+            creditsPanel.enabled = false;
+            leaderboardPanel.enabled = false;
+            gameScreen.enabled = false;
+        }
+        
+        else if (SceneManager.GetActiveScene().name == "1_GameLevel")
+        {
+            gameScreen.enabled = true;
+            homeScreen.enabled = false; 
+        }
+    }
+
+    private void Start()
+    {
+       
+    }
+
     #region Main Menu UI Functions
     
-    void StartLevel() => SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
+    public void StartLevel() => SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
+    public void OpenSettings() => settingsPanel.enabled = true;
+    public void OpenLeader() => leaderboardPanel.enabled = true;
+
+    public void OpenCredits()
+    {
+        settingsPanel.enabled = false;
+        creditsPanel.enabled = true;
+    }
+
+    public void ClosePanel() => this.transform.parent.gameObject.SetActive(false); 
 
     #endregion
     
     #region In-Game UI Functions
     
-    void PauseGame()
+    public void PauseGame()
     {
         if (!pausePanel.enabled && !gameOverPanel.enabled)
         {
@@ -58,13 +97,20 @@ public class UIManager : MonoBehaviour
        
     }
     
-    void ResumeGame()
+    public void ResumeGame()
     {
         pausePanel.enabled = false;
         Time.timeScale = 1.0f;
     }
     
-    void MainMenu() => SceneManager.LoadScene("0_MainMenu");
+   public void MainMenu() => SceneManager.LoadScene("0_MainMenu");
+
+   public void GameOver()
+   {
+       
+       gameOverPanel.enabled = true; 
+       
+   }
 
     #endregion
     
