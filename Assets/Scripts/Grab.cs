@@ -10,7 +10,7 @@ public class Grab : MonoBehaviour
   [SerializeField] private LineRenderer lineRenderer;
   [SerializeField] private DistanceJoint2D distanceJoint;
 
-  [SerializeField] private Transform hook;
+  //[SerializeField] private Transform hook;
   //[SerializeField] private float movespeed;
   [SerializeField] private float grablength;
 
