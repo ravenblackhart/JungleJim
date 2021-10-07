@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     {
       isJumping = true;
       Debug.Log(isJumping);
+      FindObjectOfType<AudioManager>().Play("Jump");
     }
 
     if (horizontalMovment > 0 && !facingRight)
