@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
@@ -51,7 +53,6 @@ public class UIManager : MonoBehaviour
             creditsPanel.enabled = false;
             leaderboardPanel.enabled = false;
             gameScreen.enabled = false;
-
         }
         
         else if (SceneManager.GetActiveScene().name == "1_GameLevel")
@@ -61,10 +62,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+       
+    }
+
     #region Main Menu UI Functions
     
     public void StartLevel() => SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
-
     public void OpenSettings() => settingsPanel.enabled = true;
     public void OpenLeader() => leaderboardPanel.enabled = true;
 
@@ -72,8 +77,9 @@ public class UIManager : MonoBehaviour
     {
         settingsPanel.enabled = false;
         creditsPanel.enabled = true;
-    } 
-    public void ClosePanel() => transform.parent.GetComponent<Canvas>().enabled = false; 
+    }
+
+    public void ClosePanel() => this.transform.parent.gameObject.SetActive(false); 
 
     #endregion
     
@@ -98,6 +104,13 @@ public class UIManager : MonoBehaviour
     }
     
    public void MainMenu() => SceneManager.LoadScene("0_MainMenu");
+
+   public void GameOver()
+   {
+       
+       gameOverPanel.enabled = true; 
+       
+   }
 
     #endregion
     
