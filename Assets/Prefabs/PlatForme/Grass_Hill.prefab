@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6732211854991138157}
   - component: {fileID: 6732211854991138156}
+  - component: {fileID: 2539333683817686115}
   m_Layer: 0
   m_Name: Grass_Hill
   m_TagString: Untagged
@@ -82,3 +83,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &2539333683817686115
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732211854991138159}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.6705504, y: -0.94897664}
+  - {x: -0.69537103, y: 0.28262883}
+  - {x: 0.43130118, y: -0.48841155}
+  - {x: 0.43891126, y: -0.9808141}
+  - {x: -0.6764703, y: -0.9841241}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
