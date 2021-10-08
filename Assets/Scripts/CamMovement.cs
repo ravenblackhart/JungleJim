@@ -23,9 +23,6 @@ public class CamMovement : MonoBehaviour
         speedAcc += speedAccInc * Time.deltaTime;
 
     }
-
-
-
     void followPlayer()
     {
         Vector3 newPosition = new Vector3(targetPlayer.position.x, transform.position.y, transform.position.z);
