@@ -136,27 +136,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GameSprites_1-01_1
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 1157
-        width: 657
-        height: 184
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc2117e965dff7920800000000000000
-      internalID: 2990387226064523983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: GameSprites_1-01_2
       rect:
         serializedVersion: 2
@@ -257,27 +236,6 @@ TextureImporter:
       bones: []
       spriteID: 69fbae70eccc45060800000000000000
       internalID: 6941398110952931222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameSprites_1-01_7
-      rect:
-        serializedVersion: 2
-        x: 627
-        y: 1156
-        width: 177
-        height: 184
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bcab068cd5822450800000000000000
-      internalID: 6062555230582320307
       vertices: []
       indices: 
       edges: []
@@ -622,12 +580,12 @@ TextureImporter:
       name: GameSprites_1-01_0
       rect:
         serializedVersion: 2
-        x: 147
-        y: 1158
-        width: 165
-        height: 182
+        x: 160
+        y: 1148
+        width: 650
+        height: 188
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -635,27 +593,6 @@ TextureImporter:
       bones: []
       spriteID: 3d77195d694a5c170800000000000000
       internalID: 8198139664432986067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameSprites_1-01_14
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 1156
-        width: 315
-        height: 184
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ea15e2a8bb1a2b00800000000000000
-      internalID: 804485963259910880
       vertices: []
       indices: 
       edges: []
