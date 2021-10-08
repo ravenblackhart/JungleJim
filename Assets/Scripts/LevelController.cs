@@ -27,8 +27,6 @@ public class LevelController : MonoBehaviour
                 transform);
 
             nextLevelPosition = newPart.Find("End_point").position;
-            
-            
         }
     }
 
