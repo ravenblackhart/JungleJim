@@ -3,10 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+
+[System.Serializable]
+public class MyEvent : UnityEvent<GameObject>
+{
+}
 
 public class UIManager : MonoBehaviour
 {
@@ -79,7 +85,7 @@ public class UIManager : MonoBehaviour
         creditsPanel.enabled = true;
     }
 
-    public void ClosePanel() => this.transform.parent.gameObject.SetActive(false); 
+    public void ClosePanel(Canvas panel) => panel.enabled = false; 
 
     #endregion
     
@@ -120,3 +126,4 @@ public class UIManager : MonoBehaviour
     }
     
 }
+
