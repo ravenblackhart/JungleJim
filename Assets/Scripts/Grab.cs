@@ -14,12 +14,8 @@ public class Grab : MonoBehaviour
   //[SerializeField] private float movespeed;
   [SerializeField] private float grablength;
 
- // private int max;
+  
   private Rigidbody2D rb;
-  //private List<Vector2> points = new List<Vector2>();
-
-
-
   
   void Start()
   {
@@ -39,34 +35,33 @@ public class Grab : MonoBehaviour
         Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition); // takes mouspos from screentowoldpoint
         Vector2 mousePos2D = new Vector2(mousePos.x,mousePos.y);
       
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D,Vector2.zero,grablength,whatICangrab); 
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D,Vector2.zero, Mathf.Infinity,whatICangrab); 
         // vector.zero to decide the direction so the only thing we click get "hit". Decide grablenght and what we can grab
         
         if (hit.collider != null) // if we hit a collider and it have the right layermask etc do this
         {
-          Debug.Log("i klicked");
           Vector2 hitPoint = hit.point;
-          //points.Add(hitPont);
-          // 
-          lineRenderer.SetPosition(0, hitPoint);
-          lineRenderer.SetPosition(1, transform.position);
-          // //hook.position = hit.point;
-          // 
-          // // rb.MovePosition(Vector2.MoveTowards(transform.position,hit.point,Time.deltaTime * 1)); //move the player to that direction
-          distanceJoint.connectedAnchor = hit.point;
-          distanceJoint.enabled = true;
-          lineRenderer.enabled = true;
+          Vector2 characterPos = new Vector2(transform.position.x, transform.position.y);
+          Vector2 difference = hitPoint - characterPos;
+          
+          if (difference.magnitude <= grablength)
+          {
+            
+            lineRenderer.SetPosition(0, hitPoint);
+            lineRenderer.SetPosition(1, transform.position);
+            // //hook.position = hit.point;
+            
+            // // rb.MovePosition(Vector2.MoveTowards(transform.position,hit.point,Time.deltaTime * 1)); //move the player to that direction
+            distanceJoint.connectedAnchor = hit.point;
+            distanceJoint.enabled = true;
+            lineRenderer.enabled = true;
+          }
           
         }
 
-      
-      
-      
-      
-      
     // Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
     // Vector2 direction = (mousePos - (Vector2) transform.position).normalized;
-    // 
+    // float lenghts = (mousePos - (Vector2) transform.position).magnitude;
     // RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grablength, whatICangrab);
 
      // RaycastHit2D hit;
