@@ -59,14 +59,27 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         
-        SceneManager.activeSceneChanged += OnSceneLoad;
+        if (SceneManager.GetActiveScene().name == "0_MainMenu")
+        {
+            homeScreen.enabled = true;
+            settingsPanel.enabled = false;
+            creditsPanel.enabled = false;
+            leaderboardPanel.enabled = false;
+        }
+
+        else if (SceneManager.GetActiveScene().name == "1_GameLevel")
+        {
+            gameScreen.enabled = true;
+            HUD.enabled = true;
+            pausePanel.enabled = false;
+            gameOverPanel.enabled = false;
+        }
+
     }
 
     public void Update()
     {
-        SceneManager.activeSceneChanged += OnSceneLoad;
-
-        
+ 
         if (animatePanel && elapsedAnimDuration < animationDuration)
         {
             startPosition = animTarget.transform.localPosition;

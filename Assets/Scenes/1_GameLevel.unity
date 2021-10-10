@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 274150979}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,7 +460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1098714894}
-  uiManager: {fileID: 651895375}
 --- !u!4 &274150980
 Transform:
   m_ObjectHideFlags: 0
@@ -472,7 +471,6 @@ Transform:
   m_LocalPosition: {x: 0.5695745, y: 1.5011876, z: -4823.9927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 651895376}
   - {fileID: 1098714895}
   m_Father: {fileID: 0}
   m_RootOrder: 47
@@ -994,7 +992,7 @@ GameObject:
   - component: {fileID: 651895375}
   m_Layer: 0
   m_Name: UIManager
-  m_TagString: Untagged
+  m_TagString: UIManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1030,11 +1028,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651895374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5695745, y: -1.5011876, z: 4823.9927}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 274150980}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &666134955
 Transform:
@@ -2869,7 +2867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952879706543473102, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
       propertyPath: m_RootOrder
-      value: 62
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 3952879706543473102, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
       propertyPath: m_AnchorMax.x
