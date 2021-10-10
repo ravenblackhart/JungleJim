@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1416,9 +1416,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1254140566}
     - target: {fileID: 6679662052492474682, guid: 2a9e60b07d9fdc44f88c324303ea34a5, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679662052492474682, guid: 2a9e60b07d9fdc44f88c324303ea34a5, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1742630765}
+    - target: {fileID: 6679662052492474682, guid: 2a9e60b07d9fdc44f88c324303ea34a5, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679662052492474682, guid: 2a9e60b07d9fdc44f88c324303ea34a5, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Theme
+      objectReference: {fileID: 0}
     - target: {fileID: 8060288060460383720, guid: 2a9e60b07d9fdc44f88c324303ea34a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

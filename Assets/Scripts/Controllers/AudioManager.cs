@@ -5,7 +5,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-
+    private bool musicOn= true;
+    private bool sfxOn = true;
     public static AudioManager instance;
 
     void Awake()
@@ -48,6 +49,11 @@ public class AudioManager : MonoBehaviour
 
         // FindObjectOfType<AudioManager>().Play("Jump"); // Call SoundManager from Any script
 
+
+    }
+
+    public void toggleMusic(string name)
+    {
 
     }
 }
