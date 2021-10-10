@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -190,7 +190,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &145761259
@@ -393,11 +393,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 7392583872581010602, guid: 93cb8f2eb1d7d8043b09930b5decf99b, type: 3}
-  - {fileID: 6750980247177643690, guid: 22bd061a180281747a50febc65b5d7b8, type: 3}
-  - {fileID: 6813521806197568715, guid: 55f68cfb7b3d1024286d91aa210fdaf0, type: 3}
+  - {fileID: 1668161128}
+  - {fileID: 1668161128}
+  - {fileID: 1668161128}
   nextLevelPosition: {x: 14.3, y: 0, z: 0}
-  player: {fileID: 0}
+  player: {fileID: 1610789457}
   levelDrawDistance: 30
   LevelDeleteDistance: 40
 --- !u!4 &862270480
@@ -448,7 +448,7 @@ Transform:
   m_LocalScale: {x: 0.03427931, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668161128}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &956425297
 GameObject:
@@ -527,7 +527,7 @@ Transform:
   m_LocalScale: {x: 0.09452481, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668161128}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1063950701
 BoxCollider2D:
@@ -1165,6 +1165,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545305814}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1610789457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5161155535640150543, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+  m_PrefabInstance: {fileID: 1776404006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1622221523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,8 +1283,8 @@ Transform:
   m_LocalScale: {x: 29.172117, y: 1, z: 1}
   m_Children:
   - {fileID: 1080187757}
-  - {fileID: 1063950700}
   - {fileID: 900626353}
+  - {fileID: 1063950700}
   - {fileID: 956425298}
   m_Father: {fileID: 862270480}
   m_RootOrder: 0
@@ -1291,6 +1296,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5161155535640150531, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1622221525}
     - target: {fileID: 5161155535640150535, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: m_RootOrder
       value: 7

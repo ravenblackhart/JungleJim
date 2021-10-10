@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
   [SerializeField] private float checkRadius;
   [SerializeField] private LayerMask groundObject;
   [SerializeField] private Transform groundCheck;
-  
+
+  private Animator Ani;
   //adding reference to UI Manager
   private UIManager uiManager;
   private TextMeshProUGUI scoreText;
@@ -40,14 +41,17 @@ public class Player : MonoBehaviour
   private void Start()
   {
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
-    scoreText = 
+    Ani = transform.GetChild(0).GetComponent<Animator>();
   }
 
   private void Update()
   {
     horizontalMovment = Input.GetAxis("Horizontal");
+    //Ani.SetBool("is");
+    
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
+      Ani.SetBool("isJumping", true);
       isJumping = true;
       Debug.Log(isJumping);
       //FindObjectOfType<AudioManager>().Play("Jump");
@@ -98,7 +102,7 @@ public class Player : MonoBehaviour
 
   private void OnBecameInvisible()
   {
-    uiManager.GameOver();
+    //uiManager.GameOver();
   }
 
   #endregion
