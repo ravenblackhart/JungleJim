@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
   
   //for Scoring 
   [Header("Scoring")]
-  [SerializeField] private float scoreMultiplier;
+  [SerializeField] private float scoreMultiplier = 1f;
 
   private Vector2 startPosition;
   private float distanceMoved;
@@ -77,9 +77,7 @@ public class Player : MonoBehaviour
       distanceMoved = Mathf.Round(transform.position.x - startPosition.x) * scoreMultiplier; 
     }
 
-    scoreText.text = $"{distanceMoved} m"; 
-
-
+    scoreText.text = $"{distanceMoved} m";
   }
 
   private void FixedUpdate()
@@ -92,6 +90,7 @@ public class Player : MonoBehaviour
       rb.AddForce(new Vector2(0f,jumpForce * 5));
     }
     isJumping = false;
+    Ani.SetBool("isJumping", false);
   }
 
   private void FlipCharacter()
