@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,12 +14,23 @@ public class Player : MonoBehaviour
   
   //adding reference to UI Manager
   private UIManager uiManager;
+  private TextMeshProUGUI scoreText;
   
   private Rigidbody2D rb;
   private bool isJumping = false;
   private bool facingRight = true;
   private bool isGrounded;
   private float horizontalMovment;
+  
+  //for Scoring 
+  [Header("Scoring")]
+  [SerializeField] private float scoreMultiplier;
+
+  private Vector2 startPosition;
+  private float distanceMoved; 
+
+
+
 
   private void Awake()
   {
@@ -28,6 +40,7 @@ public class Player : MonoBehaviour
   private void Start()
   {
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+    scoreText = 
   }
 
   private void Update()
@@ -48,6 +61,15 @@ public class Player : MonoBehaviour
     {
       FlipCharacter();
     }
+    
+    //scoring script 
+
+    if (Mathf.Round(transform.position.x - startPosition.x) > distanceMoved)
+    {
+      distanceMoved = Mathf.Round(transform.position.x - startPosition.x); 
+    }
+    
+    
     
   }
 
