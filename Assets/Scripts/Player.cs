@@ -28,8 +28,9 @@ public class Player : MonoBehaviour
   [SerializeField] private float scoreMultiplier;
 
   private Vector2 startPosition;
-  private float distanceMoved; 
+  private float distanceMoved;
 
+  private TextMeshProUGUI finalScore; 
 
 
 
@@ -43,6 +44,8 @@ public class Player : MonoBehaviour
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     scoreText = uiManager.DistanceText; 
     Ani = transform.GetChild(0).GetComponent<Animator>();
+    startPosition = this.transform.position;
+    finalScore = uiManager.FinalScoreText;
   }
 
   private void Update()
@@ -71,7 +74,7 @@ public class Player : MonoBehaviour
 
     if (Mathf.Round(transform.position.x - startPosition.x) > distanceMoved)
     {
-      distanceMoved = Mathf.Round(transform.position.x - startPosition.x); 
+      distanceMoved = Mathf.Round(transform.position.x - startPosition.x) * scoreMultiplier; 
     }
 
     scoreText.text = $"{distanceMoved} m"; 
@@ -102,8 +105,10 @@ public class Player : MonoBehaviour
   // Added script components for : 
   // - Death State
 
-  private void OnBecameInvisible()
+  private void OnDead()
   {
+    finalScore.text = scoreText.text;
+
     //uiManager.GameOver();
   }
 
