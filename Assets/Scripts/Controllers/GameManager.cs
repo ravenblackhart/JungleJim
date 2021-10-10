@@ -7,9 +7,12 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
+    
+    public static GameManager instance;
+    
     [Header("Controller Scripts")] 
     [SerializeField] private protected AudioManager audioManager;
-    [SerializeField] private protected UIManager uiManager;
+    private protected UIManager uiManager;
 
     void Awake()
     {
@@ -24,23 +27,8 @@ public class GameManager : MonoBehaviour
             var eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
         }
 
-        if (SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            GameObject[] mui = GameObject.FindGameObjectsWithTag("UIController");
-            if (mui.Length > 1)
-            {
-                for (int i = 1; i < mui.Length; i++)
-                {
-                    Destroy(mui[i]);
-                }
-            }
-        
-            else if (mui.Length < 1)
-            {
-                Instantiate(uiManager);
-            }
-        }
-       
+        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+
         #endregion
 
         // #region PlayerController
