@@ -24,8 +24,7 @@ public class Player : MonoBehaviour
   private float horizontalMovment;
   
   //for Scoring 
-  [Header("Scoring")]
-  [SerializeField] private float scoreMultiplier;
+  [Header("Scoring")] [SerializeField] private float scoreMultiplier = 1;
 
   private Vector2 startPosition;
   private float distanceMoved;
@@ -58,7 +57,7 @@ public class Player : MonoBehaviour
       Ani.SetBool("isJumping", true);
       isJumping = true;
       Debug.Log(isJumping);
-      //FindObjectOfType<AudioManager>().Play("Jump");
+      FindObjectOfType<AudioManager>().Play("Jump");
     }
 
     if (horizontalMovment > 0 && !facingRight)
