@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
   [SerializeField] private LayerMask groundObject;
   [SerializeField] private Transform groundCheck;
   
+  //adding reference to UI Manager
+  private UIManager uiManager;
   
   private Rigidbody2D rb;
   private bool isJumping = false;
@@ -25,7 +27,7 @@ public class Player : MonoBehaviour
 
   private void Start()
   {
-    
+    uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
   }
 
   private void Update()
@@ -66,4 +68,16 @@ public class Player : MonoBehaviour
     facingRight = !facingRight;
     transform.Rotate(0,180,0);
   }
+
+  #region Vivienne
+
+  // Added script components for : 
+  // - Death State
+
+  private void OnBecameInvisible()
+  {
+    uiManager.GameOver();
+  }
+
+  #endregion
 }

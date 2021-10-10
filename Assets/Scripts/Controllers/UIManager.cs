@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
             leaderboardPanel.enabled = false;
         }
 
-        else if (SceneManager.GetActiveScene().name == "1_GameLevel")
+        else if (SceneManager.GetActiveScene().name != "0_MainMenu")
         {
             gameScreen.enabled = true;
             HUD.enabled = true;
