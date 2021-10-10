@@ -71,18 +71,17 @@ public class UIManager : MonoBehaviour
         {
             startPosition = animTarget.transform.localPosition;
             percentAnim = (elapsedAnimDuration / animationDuration);
-            elapsedAnimDuration += Time.deltaTime;
+            elapsedAnimDuration += Time.unscaledDeltaTime;
 
             animTarget.transform.localPosition =
                 Vector2.Lerp(startPosition, targetPosition, percentAnim);
             
-            if (elapsedAnimDuration >= animationDuration || percentAnim >= 0.95f)
+            if (startPosition == targetPosition || elapsedAnimDuration >= animationDuration || percentAnim >= 0.95f)
             {
                 animatePanel = false;
                 elapsedAnimDuration = 0f;
-                Debug.Log("Done");
 
-                if (animTarget.transform.localPosition.y == posYOut)
+                if (targetPosition.y == posYOut)
                 {
                     animTarget.transform.GetComponent<Canvas>().enabled = false;
                 }
@@ -148,6 +147,7 @@ public class UIManager : MonoBehaviour
         if (!pausePanel.enabled && !gameOverPanel.enabled)
         {
             pausePanel.enabled = true;
+            targetPosition.Set(posXIn, posYIn);
             SlidePanel(pausePanel);
             Time.timeScale = 0.0f;
         }
@@ -157,7 +157,8 @@ public class UIManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        pausePanel.enabled = false;
+        targetPosition.Set(posXOut, posYOut);
+        SlidePanel(pausePanel);
         Time.timeScale = 1.0f;
     }
 
