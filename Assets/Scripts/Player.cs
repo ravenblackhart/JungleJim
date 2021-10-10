@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
   private void Start()
   {
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+    scoreText = uiManager.DistanceText; 
     Ani = transform.GetChild(0).GetComponent<Animator>();
   }
 
@@ -72,9 +73,10 @@ public class Player : MonoBehaviour
     {
       distanceMoved = Mathf.Round(transform.position.x - startPosition.x); 
     }
-    
-    
-    
+
+    scoreText.text = $"{distanceMoved} m"; 
+
+
   }
 
   private void FixedUpdate()
