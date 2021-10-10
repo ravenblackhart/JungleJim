@@ -29,12 +29,12 @@ public class UIManager : MonoBehaviour
 
     [Header("In-game UI - HUD")] 
     [SerializeField] [CanBeNull] private Canvas HUD;
-    [SerializeField] [CanBeNull] private TextMeshProUGUI DistanceText;
+    [SerializeField] [CanBeNull] public TextMeshProUGUI DistanceText;
 
     [Header("In-game UI - Canvases")] 
     [SerializeField] [CanBeNull] private Canvas pausePanel;
     [SerializeField] [CanBeNull] private Canvas gameOverPanel;
-    [SerializeField] [CanBeNull] private TextMeshProUGUI FinalScoreText;
+    [SerializeField] [CanBeNull] public TextMeshProUGUI FinalScoreText;
 
     [Header("UI Animation Settings")] 
     [SerializeField] private float animationDuration = 5f;
@@ -106,6 +106,7 @@ public class UIManager : MonoBehaviour
 
     void OnSceneLoad(Scene current, Scene next)
     {
+        
         if (SceneManager.GetActiveScene().name == "0_MainMenu")
         {
             homeScreen.enabled = true;
