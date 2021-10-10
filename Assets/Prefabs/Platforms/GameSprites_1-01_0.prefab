@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3126543282154667057}
   - component: {fileID: 3819134747979188718}
   - component: {fileID: 2650257194152902077}
+  - component: {fileID: 7385999183034739369}
   m_Layer: 6
   m_Name: GameSprites_1-01_0
   m_TagString: Untagged
@@ -109,3 +110,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.190121, y: 0.9012363}
   m_EdgeRadius: 0
+--- !u!251 &7385999183034739369
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7328323550319152331}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 80
+  m_UseSideFriction: 0
+  m_UseSideBounce: 1
+  m_SideArc: 1
