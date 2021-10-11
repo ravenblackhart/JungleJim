@@ -15,6 +15,15 @@ public class PlayFabManager : MonoBehaviour
     private void Start()
     {
         LoginPlayFab();
+        
+    }
+
+    private void Update()
+    {
+        if (rowsParent == null)
+        {
+            rowsParent = GameObject.FindGameObjectWithTag("LeaderTable").GetComponent<Transform>();
+        }
     }
 
     void LoginPlayFab()
@@ -91,8 +100,11 @@ public class PlayFabManager : MonoBehaviour
 
     void OnLeaderboardGet(GetLeaderboardResult result)
     {
-        foreach (Transform item in rowsParent) Destroy(item.gameObject);
-        
+        if (rowsParent.childCount > 0)
+        {
+            foreach (Transform item in rowsParent) Destroy(item.gameObject);
+        }
+
         foreach (var item in result.Leaderboard)
         {
             GameObject newRow = Instantiate(rowPrefab, rowsParent);

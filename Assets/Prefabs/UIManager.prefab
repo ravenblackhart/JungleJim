@@ -49,6 +49,8 @@ MonoBehaviour:
   creditsPanel: {fileID: 0}
   leaderboardPanel: {fileID: 0}
   setUID: {fileID: 0}
+  saveMessage: {fileID: 0}
+  leaderTable: {fileID: 0}
   HUD: {fileID: 0}
   DistanceText: {fileID: 0}
   pausePanel: {fileID: 0}

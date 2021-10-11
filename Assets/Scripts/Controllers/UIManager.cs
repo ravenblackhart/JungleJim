@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     [Header("Main Menu - UI Elements")] 
     [SerializeField] [CanBeNull] private TMP_InputField setUID;
     [SerializeField] [CanBeNull] private TextMeshProUGUI saveMessage;
+    [SerializeField] [CanBeNull] private Transform leaderTable;
 
     [Header("In-game UI - HUD")] 
     [SerializeField] [CanBeNull] private Canvas HUD;
@@ -147,8 +148,15 @@ public class UIManager : MonoBehaviour
     {
         targetPosition.Set(posXOut, posYOut);
         SlidePanel(panel);
-
         saveMessage.enabled = false;
+
+        if (panel == leaderboardPanel)
+        {
+            foreach (Transform item in leaderTable)
+            {
+                Destroy(item.gameObject);
+            }
+        }
 
     }
 
