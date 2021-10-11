@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
       Ani.SetBool("isJumping", true);
       isJumping = true;
       Debug.Log(isJumping);
-      //FindObjectOfType<AudioManager>().Play("Jump");
+      FindObjectOfType<AudioManager>().Play("Jump");
     }
 
     if (horizontalMovment > 0 && !facingRight)
