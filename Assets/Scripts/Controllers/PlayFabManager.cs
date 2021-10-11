@@ -48,6 +48,7 @@ public class PlayFabManager : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+        Debug.Log($"Score {score} sent to PlayFab");
     }
 
     void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result) => Debug.Log("Update Successful");

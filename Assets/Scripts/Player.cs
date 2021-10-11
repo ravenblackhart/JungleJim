@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
     Ani = transform.GetChild(0).GetComponent<Animator>();
     startPosition = this.transform.position;
     finalScore = uiManager.FinalScoreText;
+    Debug.Log($"Previous Highscore {PlayerPrefs.GetFloat("High Score")}");
   }
 
   private void Update()
