@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52fab54d28919e4e9afd1698fbc68c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 1098714894}
+  audioManagerPrefab: {fileID: 0}
+  uiManagerPrefab: {fileID: 0}
 --- !u!4 &274150980
 Transform:
   m_ObjectHideFlags: 0
@@ -527,7 +528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150531, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: grablength
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150531, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: mainCamera
@@ -705,17 +706,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82b66e84793642543b1a22204f6e999d, type: 3}
---- !u!114 &1098714894 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3849203826461265654, guid: 82b66e84793642543b1a22204f6e999d, type: 3}
-  m_PrefabInstance: {fileID: 1098714893}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dcd648af30775e46aabb3f99765b289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1098714895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3849203826461265655, guid: 82b66e84793642543b1a22204f6e999d, type: 3}
