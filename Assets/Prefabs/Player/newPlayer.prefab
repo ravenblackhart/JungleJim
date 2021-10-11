@@ -266,12 +266,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movmentSpeed: 20
-  jumpForce: 250
+  jumpForce: 220
   checkRadius: 2
   groundObject:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 5161155534730691252}
+  minY: 0
+  scoreMultiplier: 1
 --- !u!50 &5161155535640150533
 Rigidbody2D:
   serializedVersion: 4
@@ -409,7 +411,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   lineRenderer: {fileID: 5161155535640150532}
   distanceJoint: {fileID: 5161155535640150530}
-  grablength: 10
+  grablength: 8
 --- !u!232 &5161155535640150530
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -442,7 +444,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16497636, y: -0.43993735}
+  m_Offset: {x: 0.1843872, y: -0.36876905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -453,5 +455,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8078313, y: 1.6404076}
-  m_EdgeRadius: 0
+  m_Size: {x: 3.3290596, y: 1.498071}
+  m_EdgeRadius: 0.2
