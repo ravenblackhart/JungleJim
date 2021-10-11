@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878022298323835678}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5695745, y: -1.5011876, z: 4823.9927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -48,6 +48,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   leaderboardPanel: {fileID: 0}
+  setUID: {fileID: 0}
   HUD: {fileID: 0}
   DistanceText: {fileID: 0}
   pausePanel: {fileID: 0}

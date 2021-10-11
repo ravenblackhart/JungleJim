@@ -27,6 +27,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] [CanBeNull] private Canvas creditsPanel;
     [SerializeField] [CanBeNull] private Canvas leaderboardPanel;
 
+    [Header("Main Menu - UI Elements")] 
+    [SerializeField] [CanBeNull] private TMP_InputField setUID;
+    [SerializeField] [CanBeNull] private TextMeshProUGUI saveMessage;
+
     [Header("In-game UI - HUD")] 
     [SerializeField] [CanBeNull] private Canvas HUD;
     [SerializeField] [CanBeNull] public TextMeshProUGUI DistanceText;
@@ -56,7 +60,18 @@ public class UIManager : MonoBehaviour
     private RectTransform animTarget;
 
     private PlayFabManager playFab;
-    
+
+
+    private void OnGUI()
+    {
+        //Delete all of the PlayerPrefs settings by pressing this Button
+        if (GUI.Button(new Rect(100, 200, 200, 60), "Clear Player Prefs"))
+        {
+            PlayerPrefs.DeleteAll();
+            Debug.Log("Player Prefs Cleared");
+        }
+    }
+
     void Awake()
     {
         Time.timeScale = 1.0f;
@@ -65,6 +80,7 @@ public class UIManager : MonoBehaviour
         {
             homeScreen.enabled = true;
             settingsPanel.enabled = false;
+            saveMessage.enabled = false;
             creditsPanel.enabled = false;
             leaderboardPanel.enabled = false;
         }
@@ -78,6 +94,8 @@ public class UIManager : MonoBehaviour
         }
 
         playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
+
+        setUID.text = PlayerPrefs.GetString("Username");
 
     }
 
@@ -105,15 +123,27 @@ public class UIManager : MonoBehaviour
             }
 
         }
-        
-        
-
     }
     
 
     #region Main Menu UI Functions
 
-    public void StartLevel() => SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
+    public void StartLevel()
+    {
+        if (PlayerPrefs.GetString("Username") == String.Empty)
+        {
+            settingsPanel.enabled = true;
+            targetPosition.Set(posXIn, posYIn);
+            SlidePanel(settingsPanel);
+            setUID.Select();
+            saveMessage.enabled = true; 
+            saveMessage.text = $"Set your User ID!"; 
+            saveMessage.color = Color.white;
+            saveMessage.fontWeight = FontWeight.Bold;
+            saveMessage.fontSize = 32; 
+        }
+        else SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
+    } 
     
     public void OpenPanel(Canvas panel)
     {
@@ -125,8 +155,9 @@ public class UIManager : MonoBehaviour
     public void ClosePanel(Canvas panel)
     {
         targetPosition.Set(posXOut, posYOut);
-
         SlidePanel(panel);
+
+        saveMessage.enabled = false;
 
     }
 
@@ -136,6 +167,24 @@ public class UIManager : MonoBehaviour
         animatePanel = true;
     }
 
+    public void SaveUID()
+    {
+        saveMessage.enabled = true;
+        saveMessage.color = new Color32(99, 65, 60, 255);
+        saveMessage.fontWeight = FontWeight.Regular;
+        saveMessage.fontSize = 24;
+        if (setUID.text.Length > 0 && setUID.text != PlayerPrefs.GetString("Username"))
+        {
+            PlayerPrefs.SetString("Username", setUID.text);
+            saveMessage.text = $"Your User ID has been saved!";
+
+        }
+        
+        else if (setUID.text == PlayerPrefs.GetString("Username"))
+        {
+            saveMessage.text = $"No changes have been made";
+        }
+    }
     #endregion
     
     #region Leaderboard
@@ -144,6 +193,7 @@ public class UIManager : MonoBehaviour
     {
         playFab.GetLeaderboard();
         leaderboardPanel.enabled = true; 
+        targetPosition.Set(posXIn, posYIn);
         SlidePanel(leaderboardPanel);
     }
     
@@ -175,6 +225,7 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+        targetPosition.Set(posXIn, posYIn);
         gameOverPanel.enabled = true;
         Time.timeScale = 0.0f; 
         SlidePanel(gameOverPanel);

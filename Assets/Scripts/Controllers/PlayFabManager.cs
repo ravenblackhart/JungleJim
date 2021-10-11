@@ -35,6 +35,22 @@ public class PlayFabManager : MonoBehaviour
         Debug.Log(error.GenerateErrorReport());
     }
 
+    // public void GetPlayerData()
+    // {
+    //     PlayFabClientAPI.GetUserData();
+    // }
+
+    // public void SavePlayerData()
+    // {
+    //     var request = new UpdateUserDataRequest()
+    //     {
+    //         Data = new Dictionary<string, string>{("Username", PlayerPrefs.GetString("Username"))}
+    //     };
+    //     PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnPlayerDataSaved(), OnError);
+    // }
+
+    //void OnPlayerDataSaved() => Debug.Log($"User ID is now {UserTitleInfo}");
+
     public void SendLeaderboard(int score)
     {
         var request = new UpdatePlayerStatisticsRequest
