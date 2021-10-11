@@ -54,6 +54,8 @@ public class UIManager : MonoBehaviour
 
     private bool animatePanel = false;
     private RectTransform animTarget;
+
+    private PlayFabManager playFab;
     
     void Awake()
     {
@@ -74,6 +76,8 @@ public class UIManager : MonoBehaviour
             pausePanel.enabled = false;
             gameOverPanel.enabled = false;
         }
+
+        playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
 
     }
 
@@ -134,9 +138,14 @@ public class UIManager : MonoBehaviour
 
     #endregion
     
-    #region Leaderboard 
-    
-    
+    #region Leaderboard
+
+    public void LeaderboardLoad()
+    {
+        playFab.GetLeaderboard();
+        leaderboardPanel.enabled = true; 
+        SlidePanel(leaderboardPanel);
+    }
     
     #endregion
 
