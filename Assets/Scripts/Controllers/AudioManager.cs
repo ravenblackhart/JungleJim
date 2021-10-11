@@ -53,6 +53,55 @@ public class AudioManager : MonoBehaviour
 
     public void toggleMusic(string name)
     {
-        // Toggle
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+
+        if (musicOn == true)
+        {
+            s.source.volume = 0f;
+            musicOn = false;
+        }
+        else if (musicOn == false)
+        {
+            s.source.volume = 0.5f;
+            musicOn = true;
+        }
+        else
+        {
+            return;
+        }
+
+    }
+
+    public void toggleSFX(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+
+        if (sfxOn == true)
+        {
+            s.source.volume = 0f;
+            sfxOn = false;
+        }
+        else if (sfxOn == false)
+        {
+            s.source.volume = 0.5f;
+            sfxOn = true;
+        }
+        else
+        {
+            return;
+        }
+
     }
 }
