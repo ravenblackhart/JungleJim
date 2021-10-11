@@ -181,6 +181,7 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.enabled = true;
+        Time.timeScale = 0.0f; 
         SlidePanel(gameOverPanel);
     }
 
