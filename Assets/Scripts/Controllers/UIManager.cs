@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
 
     #region Main Menu UI Functions
 
-    public void StartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Use this script for playButton & restartButton
+    public void StartLevel() => SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
     
     public void OpenPanel(Canvas panel)
     {
