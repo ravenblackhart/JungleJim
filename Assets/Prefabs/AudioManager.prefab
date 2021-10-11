@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3849203826461265654}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,11 +46,13 @@ MonoBehaviour:
   sounds:
   - name: Jump
     clip: {fileID: 8300000, guid: 20711205619a51c4e93e517c55264478, type: 3}
-    volume: 0.627
+    volume: 0.182
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 54978d8b5b5bff04dbeb91cd306d15f8, type: 3}
     volume: 0.55
     pitch: 1
+    loop: 1
     source: {fileID: 0}
