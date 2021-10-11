@@ -40,14 +40,14 @@ public class Player : MonoBehaviour
   private Vector2 startPosition;
   private float distanceMoved;
 
-  private TextMeshProUGUI finalScore; 
+  private TextMeshProUGUI finalScore;
+  private PlayFabManager m_playFab;
 
 
 
   private void Awake()
   {
     _camera = Camera.main ;
-    
     rb = GetComponent<Rigidbody2D>();
   }
 
@@ -56,11 +56,13 @@ public class Player : MonoBehaviour
     
     isDead = false;
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+    m_playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
     scoreText = uiManager.DistanceText; 
     
     Ani = transform.GetChild(0).GetComponent<Animator>();
     startPosition = this.transform.position;
     finalScore = uiManager.FinalScoreText;
+    Debug.Log($"Previous Highscore {PlayerPrefs.GetFloat("High Score")}");
   }
 
   private void Update()
@@ -141,6 +143,15 @@ public class Player : MonoBehaviour
   private void OnDead()
   {
     finalScore.text = scoreText.text;
+    var prevHighscore = PlayerPrefs.GetFloat("High Score");
+    var currentScore = distanceMoved; 
+
+    if (currentScore > prevHighscore)
+    {
+      PlayerPrefs.SetFloat("High Score", currentScore);
+      m_playFab.SendLeaderboard((int) distanceMoved);
+    }
+    
     uiManager.GameOver();
   }
 

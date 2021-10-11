@@ -6787,7 +6787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2845723296997205570, guid: 67d8330c50117434b9f468110a193c19, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClosePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 2845723296997205570, guid: 67d8330c50117434b9f468110a193c19, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
