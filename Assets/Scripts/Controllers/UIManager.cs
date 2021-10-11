@@ -79,7 +79,7 @@ public class UIManager : MonoBehaviour
 
     public void Update()
     {
- 
+
         if (animatePanel && elapsedAnimDuration < animationDuration)
         {
             startPosition = animTarget.transform.localPosition;
@@ -101,30 +101,11 @@ public class UIManager : MonoBehaviour
             }
 
         }
-
-    }
-
-    void OnSceneLoad(Scene current, Scene next)
-    {
         
-        if (SceneManager.GetActiveScene().name == "0_MainMenu")
-        {
-            homeScreen.enabled = true;
-            settingsPanel.enabled = false;
-            creditsPanel.enabled = false;
-            leaderboardPanel.enabled = false;
-            gameScreen.enabled = false;
-        }
+        
 
-        else if (SceneManager.GetActiveScene().name == "1_GameLevel")
-        {
-            homeScreen.enabled = false;
-            gameScreen.enabled = true;
-            HUD.enabled = true;
-            pausePanel.enabled = false;
-            gameOverPanel.enabled = false;
-        }
     }
+    
 
     #region Main Menu UI Functions
 
