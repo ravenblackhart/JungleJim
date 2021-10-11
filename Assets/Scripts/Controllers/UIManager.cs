@@ -115,7 +115,6 @@ public class UIManager : MonoBehaviour
     {
         panel.enabled = true;
         targetPosition.Set(posXIn, posYIn);
-
         SlidePanel(panel);
     }
 
@@ -133,6 +132,12 @@ public class UIManager : MonoBehaviour
         animatePanel = true;
     }
 
+    #endregion
+    
+    #region Leaderboard 
+    
+    
+    
     #endregion
 
     #region In-Game UI Functions

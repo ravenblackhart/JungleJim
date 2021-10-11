@@ -141,6 +141,14 @@ public class Player : MonoBehaviour
   private void OnDead()
   {
     finalScore.text = scoreText.text;
+    var prevHighscore = PlayerPrefs.GetFloat("High Score");
+    var currentScore = distanceMoved; 
+
+    if (currentScore > prevHighscore)
+    {
+      PlayerPrefs.SetFloat("High Score", currentScore);
+    }
+    
     uiManager.GameOver();
   }
 
