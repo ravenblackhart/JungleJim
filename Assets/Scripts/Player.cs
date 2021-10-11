@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
   [SerializeField] private float checkRadius;
   [SerializeField] private LayerMask groundObject;
   [SerializeField] private Transform groundCheck;
+  [SerializeField] private float minY;
 
   private Animator Ani;
   //adding reference to UI Manager
@@ -22,6 +23,12 @@ public class Player : MonoBehaviour
   private bool facingRight = true;
   private bool isGrounded;
   private float horizontalMovment;
+  
+  private Vector3 cameraviewright;
+  private Vector3 cameraviewleft;
+
+  private Camera _camera;
+  
   
   //for Scoring 
   [Header("Scoring")]
@@ -36,13 +43,17 @@ public class Player : MonoBehaviour
 
   private void Awake()
   {
+    _camera = Camera.main ;
+    
     rb = GetComponent<Rigidbody2D>();
   }
 
   private void Start()
   {
+    
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     scoreText = uiManager.DistanceText; 
+    
     Ani = transform.GetChild(0).GetComponent<Animator>();
     startPosition = this.transform.position;
     finalScore = uiManager.FinalScoreText;
@@ -80,10 +91,24 @@ public class Player : MonoBehaviour
     }
 
     scoreText.text = $"{distanceMoved} m";
+
+    if (rb.position.y < minY)
+    {
+      OnDead();
+      Debug.Log("dead");
+    }
+    if (rb.position.x - 1f < cameraviewleft.x) // dead if player get hit by the camera in the back
+    {
+      OnDead();
+    }
   }
 
   private void FixedUpdate()
   {
+    
+    cameraviewright = _camera.ViewportToWorldPoint(new Vector3(1f, 1f, _camera.transform.position.y));
+    cameraviewleft = _camera.ViewportToWorldPoint(new Vector3(0f, 0f, _camera.transform.position.y));
+    
     isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundObject);
     
     rb.velocity = new Vector2(horizontalMovment * movmentSpeed, rb.velocity.y);
@@ -93,6 +118,8 @@ public class Player : MonoBehaviour
     }
     isJumping = false;
     Ani.SetBool("isJumping", false);
+
+    
   }
 
   private void FlipCharacter()
@@ -100,18 +127,16 @@ public class Player : MonoBehaviour
     facingRight = !facingRight;
     transform.Rotate(0,180,0);
   }
+  
 
-  #region Vivienne
-
-  // Added script components for : 
-  // - Death State
+  
 
   private void OnDead()
   {
     finalScore.text = scoreText.text;
 
-    //uiManager.GameOver();
+    uiManager.GameOver();
   }
 
-  #endregion
+ 
 }
