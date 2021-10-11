@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 1840060290}
-  speedAcc: 0
+  speedAcc: 1
   speedAccInc: 0
   smoothSpeeed: 10
   camOffset: 0
@@ -490,11 +490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150535, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.66
+      value: -14.24
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150535, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.38
+      value: 2.29
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150535, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -588,6 +588,10 @@ PrefabInstance:
     - target: {fileID: 4473510012427433128, guid: b51caee956130d54a91968e2b399caf5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920014309891608857, guid: b51caee956130d54a91968e2b399caf5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51caee956130d54a91968e2b399caf5, type: 3}
