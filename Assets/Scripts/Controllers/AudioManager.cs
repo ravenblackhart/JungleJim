@@ -1,4 +1,3 @@
-using UnityEditor.Audio;
 using System;
 using UnityEngine;
 
@@ -54,6 +53,6 @@ public class AudioManager : MonoBehaviour
 
     public void toggleMusic(string name)
     {
-
+        // Toggle
     }
 }
