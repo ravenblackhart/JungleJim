@@ -12,6 +12,8 @@ public class CamMovement : MonoBehaviour
     [SerializeField]
     private float camOffset = 10f;
 
+    
+    
     private void FixedUpdate()
 
         // If player is in front of the camera the camera will follow the player otherwise it will accellerate.
