@@ -61,17 +61,6 @@ public class UIManager : MonoBehaviour
 
     private PlayFabManager playFab;
 
-
-    private void OnGUI()
-    {
-        //Delete all of the PlayerPrefs settings by pressing this Button
-        if (GUI.Button(new Rect(100, 200, 200, 60), "Clear Player Prefs"))
-        {
-            PlayerPrefs.DeleteAll();
-            Debug.Log("Player Prefs Cleared");
-        }
-    }
-
     void Awake()
     {
         Time.timeScale = 1.0f;
@@ -95,13 +84,10 @@ public class UIManager : MonoBehaviour
 
         playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
 
-        setUID.text = PlayerPrefs.GetString("Username");
-
     }
 
     public void Update()
     {
-
         if (animatePanel && elapsedAnimDuration < animationDuration)
         {
             startPosition = animTarget.transform.localPosition;
@@ -138,9 +124,9 @@ public class UIManager : MonoBehaviour
             setUID.Select();
             saveMessage.enabled = true; 
             saveMessage.text = $"Set your User ID!"; 
-            saveMessage.color = Color.white;
+            saveMessage.color = new Color32(221, 210, 189, 255);
             saveMessage.fontWeight = FontWeight.Bold;
-            saveMessage.fontSize = 32; 
+            saveMessage.fontSize = 42; 
         }
         else SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
     } 
@@ -150,6 +136,11 @@ public class UIManager : MonoBehaviour
         panel.enabled = true;
         targetPosition.Set(posXIn, posYIn);
         SlidePanel(panel);
+
+        if (panel == settingsPanel)
+        {
+            setUID.text = PlayerPrefs.GetString("Username");
+        }
     }
 
     public void ClosePanel(Canvas panel)
@@ -170,23 +161,43 @@ public class UIManager : MonoBehaviour
     public void SaveUID()
     {
         saveMessage.enabled = true;
-        saveMessage.color = new Color32(99, 65, 60, 255);
-        saveMessage.fontWeight = FontWeight.Regular;
-        saveMessage.fontSize = 24;
-        if (setUID.text.Length > 0 && setUID.text != PlayerPrefs.GetString("Username"))
-        {
-            PlayerPrefs.SetString("Username", setUID.text);
-            saveMessage.text = $"Your User ID has been saved!";
+        
 
+        if (setUID.text.Length < 3 || setUID.text.Length > 12)
+        {
+            saveMessage.color = new Color32(255, 136, 110, 255);
+            saveMessage.fontWeight = FontWeight.Bold;
+            saveMessage.fontSize = 42;
+            
+            if (setUID.text.Length < 3) saveMessage.text = $"Please Enter At least 3 characters!";
+            if (setUID.text.Length > 12) saveMessage.text = $"Username should be maximum 12 characters long";
+        }
+
+        else
+        {
+            saveMessage.color = new Color32(99, 65, 60, 255);
+            saveMessage.fontWeight = FontWeight.Regular;
+            saveMessage.fontSize = 24;
+            
+            if (setUID.text.Length > 3 && setUID.text != PlayerPrefs.GetString("Username"))
+            {
+                PlayerPrefs.SetString("Username", setUID.text);
+                playFab.SavePlayerID();
+                saveMessage.text = $"Your User ID has been saved!";
+
+            }
+        
+            else if (setUID.text == PlayerPrefs.GetString("Username"))
+            {
+                saveMessage.text = $"No changes have been made";
+            }
         }
         
-        else if (setUID.text == PlayerPrefs.GetString("Username"))
-        {
-            saveMessage.text = $"No changes have been made";
-        }
+        
+        
     }
     #endregion
-    
+
     #region Leaderboard
 
     public void LeaderboardLoad()
