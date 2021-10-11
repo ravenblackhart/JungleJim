@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
 
     #region Main Menu UI Functions
 
-    public void StartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Use this script for playButton & restartButton
+    public void StartLevel() => SceneManager.LoadScene("1_GameLevel"); //Use this script for playButton & restartButton
     
     public void OpenPanel(Canvas panel)
     {
@@ -181,6 +181,7 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.enabled = true;
+        Time.timeScale = 0.0f; 
         SlidePanel(gameOverPanel);
     }
 

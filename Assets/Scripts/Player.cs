@@ -62,14 +62,16 @@ public class Player : MonoBehaviour
   private void Update()
   {
     horizontalMovment = Input.GetAxis("Horizontal");
-    //Ani.SetBool("is");
+    if (horizontalMovment > 0 || horizontalMovment < 0) Ani.SetBool("isMoving", true);
+    else if (horizontalMovment == 0 ) Ani.SetBool("isMoving", false);
+ 
     
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
       Ani.SetBool("isJumping", true);
       isJumping = true;
       Debug.Log(isJumping);
-      //FindObjectOfType<AudioManager>().Play("Jump");
+      FindObjectOfType<AudioManager>().Play("Jump");
     }
 
     if (horizontalMovment > 0 && !facingRight)
