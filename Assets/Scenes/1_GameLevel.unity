@@ -527,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150531, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: grablength
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150531, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: mainCamera
