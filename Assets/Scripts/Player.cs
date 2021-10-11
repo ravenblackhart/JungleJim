@@ -97,6 +97,9 @@ public class Player : MonoBehaviour
     scoreText.text = $"{distanceMoved} m";
 
     
+    //Dead Check
+    cameraviewright = _camera.ViewportToWorldPoint(new Vector3(1f, 1f, _camera.transform.position.y));
+    cameraviewleft = _camera.ViewportToWorldPoint(new Vector3(0f, 0f, _camera.transform.position.y));
     
     if (rb.position.y < minY || rb.position.x < cameraviewleft.x) // dead if player get hit by the camera in the back or falls off the map = dead
     {
@@ -111,8 +114,7 @@ public class Player : MonoBehaviour
   private void FixedUpdate()
   {
     
-    cameraviewright = _camera.ViewportToWorldPoint(new Vector3(1f, 1f, _camera.transform.position.y));
-    cameraviewleft = _camera.ViewportToWorldPoint(new Vector3(0f, 0f, _camera.transform.position.y));
+    
     
     isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundObject);
     
@@ -139,7 +141,6 @@ public class Player : MonoBehaviour
   private void OnDead()
   {
     finalScore.text = scoreText.text;
-
     uiManager.GameOver();
   }
 
