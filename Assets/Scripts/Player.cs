@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
   private float horizontalMovment;
   
   //for Scoring 
-  [Header("Scoring")] [SerializeField] private float scoreMultiplier = 1;
+  [Header("Scoring")]
+  [SerializeField] private float scoreMultiplier = 1f;
 
   private Vector2 startPosition;
   private float distanceMoved;
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
       Ani.SetBool("isJumping", true);
       isJumping = true;
       Debug.Log(isJumping);
-      FindObjectOfType<AudioManager>().Play("Jump");
+      //FindObjectOfType<AudioManager>().Play("Jump");
     }
 
     if (horizontalMovment > 0 && !facingRight)
@@ -76,9 +77,7 @@ public class Player : MonoBehaviour
       distanceMoved = Mathf.Round(transform.position.x - startPosition.x) * scoreMultiplier; 
     }
 
-    scoreText.text = $"{distanceMoved} m"; 
-
-
+    scoreText.text = $"{distanceMoved} m";
   }
 
   private void FixedUpdate()
@@ -91,6 +90,7 @@ public class Player : MonoBehaviour
       rb.AddForce(new Vector2(0f,jumpForce * 5));
     }
     isJumping = false;
+    Ani.SetBool("isJumping", false);
   }
 
   private void FlipCharacter()
