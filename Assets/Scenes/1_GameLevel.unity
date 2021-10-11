@@ -416,6 +416,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5161155534730691251, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161155534730691251, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161155534730691252, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161155534730691252, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.53
+      objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150528, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: m_Size.x
       value: 2.973938
@@ -436,6 +452,14 @@ PrefabInstance:
       propertyPath: m_EdgeRadius
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5161155535640150530, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -8.362487
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161155535640150530, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 10.212493
+      objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150531, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: grablength
       value: 8
@@ -449,8 +473,16 @@ PrefabInstance:
       value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150534, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1711490547}
+    - target: {fileID: 5161155535640150534, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: jumpForce
       value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161155535640150534, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+      propertyPath: checkRadius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5161155535640150535, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
       propertyPath: m_RootOrder
@@ -916,6 +948,11 @@ MonoBehaviour:
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3952879705790980512, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
   m_PrefabInstance: {fileID: 1612183418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1711490547 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5161155535294141761, guid: 960a15a04ee2495478ccf3e6ed11d7dc, type: 3}
+  m_PrefabInstance: {fileID: 1040064892}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1840060289 stripped
 GameObject:

@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
   [SerializeField] private Transform groundCheck;
   [SerializeField] private float minY;
 
-  private Animator Ani;
+  public Animator animator;
   //adding reference to UI Manager
   private UIManager uiManager;
   private TextMeshProUGUI scoreText;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
   private float horizontalMovment;
   
   
-  private Vector3 cameraviewright;
+  //private Vector3 cameraviewright;
   private Vector3 cameraviewleft;
 
   private Camera _camera;
@@ -53,13 +53,11 @@ public class Player : MonoBehaviour
 
   private void Start()
   {
-    
     isDead = false;
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     m_playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
     scoreText = uiManager.DistanceText; 
     
-    Ani = transform.GetChild(0).GetComponent<Animator>();
     startPosition = this.transform.position;
     finalScore = uiManager.FinalScoreText;
     Debug.Log($"Previous Highscore {PlayerPrefs.GetFloat("High Score")}");
@@ -68,17 +66,27 @@ public class Player : MonoBehaviour
   private void Update()
   {
     horizontalMovment = Input.GetAxis("Horizontal");
-    if (horizontalMovment > 0 || horizontalMovment < 0) Ani.SetBool("isMoving", true);
-    else if (horizontalMovment == 0 ) Ani.SetBool("isMoving", false);
- 
     
+    if (horizontalMovment > 0 || horizontalMovment <0)
+    {
+      if (isGrounded)//only runs if he is on the ground
+      {
+        animator.SetBool("isRunning", true); //mathf to make sure its always positive
+      }
+    }
+    else
+    {
+      animator.SetBool("isRunning", false);
+    }
+
+
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
-      Ani.SetBool("isJumping", true);
+      
       isJumping = true;
-      Debug.Log(isJumping);
       FindObjectOfType<AudioManager>().Play("Jump");
     }
+    
 
     if (horizontalMovment > 0 && !facingRight)
     {
@@ -100,7 +108,7 @@ public class Player : MonoBehaviour
 
     
     //Dead Check
-    cameraviewright = _camera.ViewportToWorldPoint(new Vector3(1f, 1f, _camera.transform.position.y));
+    //cameraviewright = _camera.ViewportToWorldPoint(new Vector3(1f, 1f, _camera.transform.position.y));
     cameraviewleft = _camera.ViewportToWorldPoint(new Vector3(0f, 0f, _camera.transform.position.y));
     
     if (rb.position.y < minY || rb.position.x < cameraviewleft.x) // dead if player get hit by the camera in the back or falls off the map = dead
@@ -116,8 +124,6 @@ public class Player : MonoBehaviour
   private void FixedUpdate()
   {
     
-    
-    
     isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundObject);
     
     rb.velocity = new Vector2(horizontalMovment * movmentSpeed, rb.velocity.y);
@@ -126,20 +132,16 @@ public class Player : MonoBehaviour
       rb.AddForce(new Vector2(0f,jumpForce * 5));
     }
     isJumping = false;
-    Ani.SetBool("isJumping", false);
-
+    //animator.SetBool("isJumping", false);
     
   }
-
+  
   private void FlipCharacter()
   {
     facingRight = !facingRight;
     transform.Rotate(0,180,0);
   }
   
-
-  
-
   private void OnDead()
   {
     finalScore.text = scoreText.text;
@@ -154,6 +156,6 @@ public class Player : MonoBehaviour
     
     uiManager.GameOver();
   }
+  
 
- 
 }
