@@ -24,10 +24,13 @@ public class Player : MonoBehaviour
   private bool isGrounded;
   private float horizontalMovment;
   
+  
   private Vector3 cameraviewright;
   private Vector3 cameraviewleft;
 
   private Camera _camera;
+  
+  public bool isDead;
   
   
   //for Scoring 
@@ -51,6 +54,7 @@ public class Player : MonoBehaviour
   private void Start()
   {
     
+    isDead = false;
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     scoreText = uiManager.DistanceText; 
     
@@ -92,15 +96,16 @@ public class Player : MonoBehaviour
 
     scoreText.text = $"{distanceMoved} m";
 
-    if (rb.position.y < minY)
+    
+    
+    if (rb.position.y < minY || rb.position.x < cameraviewleft.x) // dead if player get hit by the camera in the back or falls off the map = dead
     {
+      isDead = true;
       OnDead();
       Debug.Log("dead");
     }
-    if (rb.position.x - 1f < cameraviewleft.x) // dead if player get hit by the camera in the back
-    {
-      OnDead();
-    }
+    
+    
   }
 
   private void FixedUpdate()
