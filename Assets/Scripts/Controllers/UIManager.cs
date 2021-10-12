@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using Toggle = UnityEngine.UI.Toggle;
 
 [System.Serializable]
 public class MyEvent : UnityEvent<GameObject>
@@ -26,6 +27,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] [CanBeNull] private Canvas settingsPanel;
     [SerializeField] [CanBeNull] private Canvas creditsPanel;
     [SerializeField] [CanBeNull] private Canvas leaderboardPanel;
+    [SerializeField] [CanBeNull] private Toggle musicState;
+    [SerializeField] [CanBeNull] private Toggle sfxState;
 
     [Header("Main Menu - UI Elements")] 
     [SerializeField] [CanBeNull] private TMP_InputField setUID;
@@ -61,6 +64,7 @@ public class UIManager : MonoBehaviour
     private RectTransform animTarget;
 
     private PlayFabManager playFab;
+    private AudioManager audioManager;
 
     void Awake()
     {
@@ -84,7 +88,17 @@ public class UIManager : MonoBehaviour
         }
 
         playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
+    }
+
+    void Start()
+    {
+        if (audioManager.musicOn) musicState.isOn = true;
+        else if (!audioManager.musicOn) musicState.isOn = false;
+
+        if (audioManager.sfxOn) sfxState.isOn = true;
+        else if (!audioManager.sfxOn) sfxState.isOn = false; 
     }
 
     public void Update()
@@ -165,7 +179,9 @@ public class UIManager : MonoBehaviour
         animTarget = targetPanel.GetComponent<RectTransform>();
         animatePanel = true;
     }
+    #endregion
 
+    #region Settings Panel
     public void SaveUID()
     {
         saveMessage.enabled = true;
@@ -200,9 +216,19 @@ public class UIManager : MonoBehaviour
                 saveMessage.text = $"No changes have been made";
             }
         }
-        
-        
-        
+
+    }
+
+    public void MusicToggle()
+    {
+        if (musicState.isOn) audioManager.musicOn = true;
+        else audioManager.musicOn = false;
+    }
+    
+    public void SFXToggle()
+    {
+        if (sfxState.isOn) audioManager.sfxOn = true;
+        else audioManager.sfxOn = false;
     }
     #endregion
 

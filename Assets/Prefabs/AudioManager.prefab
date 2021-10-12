@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Jump
     clip: {fileID: 8300000, guid: 20711205619a51c4e93e517c55264478, type: 3}
-    volume: 0.182
+    volume: 0.063
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -56,3 +56,11 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Snake
+    clip: {fileID: 8300000, guid: 3177de72f8b61834ca833c8a29eaf3d7, type: 3}
+    volume: 0.55
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  musicOn: 1
+  sfxOn: 1

@@ -42,7 +42,7 @@ public class Grab : MonoBehaviour
 
         if (difference.magnitude <= grablength)
         {
-          FindObjectOfType<AudioManager>().Play("Snake"); 
+          FindObjectOfType<AudioManager>().PlaySFX("Snake"); 
           lineRenderer.SetPosition(0, hitPoint);
           lineRenderer.SetPosition(1, transform.position);
 

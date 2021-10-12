@@ -48,6 +48,8 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   leaderboardPanel: {fileID: 0}
+  musicState: {fileID: 0}
+  sfxState: {fileID: 0}
   setUID: {fileID: 0}
   saveMessage: {fileID: 0}
   leaderTable: {fileID: 0}

@@ -1,107 +1,103 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
-    private bool musicOn= true;
-    private bool sfxOn = true;
-    public static AudioManager instance;
+    public static AudioManager instance; 
+    
+    public AudioSource Music;
+    public Sound[] SFXSounds;
+    [CanBeNull] private AudioSource Player;
 
-    void Awake()
+    public bool musicOn = true;
+    public bool sfxOn = true;
+    
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
-        if (instance == null)
-            instance = this;
+        if (instance == null) instance = this;
         else
         {
             Destroy(gameObject);
             return;
         }
 
-        foreach (Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
     }
 
     private void Start()
     {
-        Play("Theme"); // Play sound from within manager
+        throw new NotImplementedException();
     }
 
-    public void Play(string name)
+    void Update()
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        if (SceneManager.GetActiveScene().name == "1_GameLevel")
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
+            Player = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         }
-        s.source.Play();
 
-        // FindObjectOfType<AudioManager>().Play("Jump"); // Call SoundManager from Any script
-
-
+        else Player = null;
+        
+        if (!musicOn) Music.volume = 0f;
+        else if (musicOn) Music.volume = 0.3f;
+        if (!sfxOn) Player.volume = 0f;
+        else if (sfxOn) Player.volume = 0.5f;
     }
-
+    
     public void toggleMusic(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        if (musicOn)
+        {
+            PlayerPrefs.SetFloat("musicIsOn", 0);
+            Music.volume = 0f;
+            musicOn = false;
+        }
+        
+        else if (!musicOn)
+        {
+            PlayerPrefs.SetFloat("musicIsOn", 1);
+            Music.volume = 0.1f;
+            musicOn = true;
+        }
+
+    }
+
+    public void PlaySFX(string name)
+    {
+        Sound sfx = Array.Find(SFXSounds, sound => sound.name == name);
+        if (sfx == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
 
-
-        if (musicOn == true)
-        {
-            s.source.volume = 0f;
-            musicOn = false;
-        }
-        else if (musicOn == false)
-        {
-            s.source.volume = 0.5f;
-            musicOn = true;
-        }
-        else
-        {
-            return;
-        }
-
+        Player.clip = sfx.clip;
+        Player.Play();
     }
 
     public void toggleSFX(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        if (sfxOn)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
+            PlayerPrefs.SetFloat("musicIsOn", 0);
+            Music.volume = 0f;
+            musicOn = false;
         }
-
-
-        if (sfxOn == true)
+        
+        else if (!sfxOn)
         {
-            s.source.volume = 0f;
-            sfxOn = false;
-        }
-        else if (sfxOn == false)
-        {
-            s.source.volume = 0.5f;
-            sfxOn = true;
-        }
-        else
-        {
-            return;
+            PlayerPrefs.SetFloat("musicIsOn", 1);
+            Music.volume = 0.1f;
+            musicOn = true;
         }
 
     }
+
+
 }
