@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
     private RectTransform animTarget;
 
     private PlayFabManager playFab;
-    private NewAudioManager audioManager;
+    private AudioManager audioManager;
 
     void Awake()
     {
@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
         }
 
         playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
-        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<NewAudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
     }
 

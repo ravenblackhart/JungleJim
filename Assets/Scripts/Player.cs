@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
   private TextMeshProUGUI finalScore;
   private PlayFabManager playFab;
-  private NewAudioManager audioManager;
+  private AudioManager audioManager;
   private AudioSource audioSource;
 
 
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     isDead = false;
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
-    audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<NewAudioManager>();
+    audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     audioSource = gameObject.GetComponent<AudioSource>();
     scoreText = uiManager.DistanceText; 
     
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
       isJumping = true;
-      FindObjectOfType<NewAudioManager>().PlaySFX("Jump");
+      FindObjectOfType<AudioManager>().PlaySFX("Jump");
     }
     if (horizontalMovment > 0 && !facingRight)
     {

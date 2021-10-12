@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
-public class NewAudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    public static NewAudioManager instance; 
+    public static AudioManager instance; 
     
     public AudioSource Music;
     public Sound[] SFXSounds;
