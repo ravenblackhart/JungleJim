@@ -9,9 +9,10 @@ public class Player : MonoBehaviour
   [SerializeField] private float movmentSpeed;
   [SerializeField] private float jumpForce;
   [SerializeField] private float checkRadius;
+  [SerializeField] private float minY;
   [SerializeField] private LayerMask groundObject;
   [SerializeField] private Transform groundCheck;
-  [SerializeField] private float minY;
+  
 
   public Animator animator;
   //adding reference to UI Manager
@@ -22,15 +23,14 @@ public class Player : MonoBehaviour
   private bool isJumping = false;
   private bool facingRight = true;
   private bool isGrounded;
+  private bool isDead;
   private float horizontalMovment;
   
   
-  //private Vector3 cameraviewright;
   private Vector3 cameraviewleft;
-
   private Camera _camera;
   
-  public bool isDead;
+  
   
   
   //for Scoring 
@@ -82,12 +82,9 @@ public class Player : MonoBehaviour
 
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
-      
       isJumping = true;
       FindObjectOfType<AudioManager>().Play("Jump");
     }
-    
-
     if (horizontalMovment > 0 && !facingRight)
     {
       FlipCharacter();
@@ -108,22 +105,17 @@ public class Player : MonoBehaviour
 
     
     //Dead Check
-    //cameraviewright = _camera.ViewportToWorldPoint(new Vector3(1f, 1f, _camera.transform.position.y));
     cameraviewleft = _camera.ViewportToWorldPoint(new Vector3(0f, 0f, _camera.transform.position.y));
-    
-    if (rb.position.y < minY || rb.position.x < cameraviewleft.x) // dead if player get hit by the camera in the back or falls off the map = dead
+    if (rb.position.y < minY || rb.position.x < cameraviewleft.x) // dead if player get hit by the camera in the back or falls off the map
     {
       isDead = true;
       OnDead();
       Debug.Log("dead");
     }
-    
-    
   }
 
   private void FixedUpdate()
   {
-    
     isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundObject);
     
     rb.velocity = new Vector2(horizontalMovment * movmentSpeed, rb.velocity.y);
@@ -132,8 +124,6 @@ public class Player : MonoBehaviour
       rb.AddForce(new Vector2(0f,jumpForce * 5));
     }
     isJumping = false;
-    //animator.SetBool("isJumping", false);
-    
   }
   
   private void FlipCharacter()
