@@ -135,8 +135,8 @@ public class Player : MonoBehaviour
     if (currentScore > prevHighscore)
     {
       PlayerPrefs.SetFloat("High Score", currentScore);
-      playFab.SendLeaderboard((int) distanceMoved);
     }
+    playFab.SendLeaderboard((int) distanceMoved);
     
     uiManager.GameOver();
   }
