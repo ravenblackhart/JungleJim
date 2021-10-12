@@ -4,7 +4,9 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+    [SerializeField]
     private bool musicOn= true;
+    [SerializeField]
     private bool sfxOn = true;
     public static AudioManager instance;
 
@@ -54,6 +56,7 @@ public class AudioManager : MonoBehaviour
     public void toggleMusic(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        PlayerPrefs.SetFloat("musicIsOn", s.source.volume);
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
@@ -68,7 +71,7 @@ public class AudioManager : MonoBehaviour
         }
         else if (musicOn == false)
         {
-            s.source.volume = 0.5f;
+            s.source.volume = 0.1f;
             musicOn = true;
         }
         else
@@ -81,6 +84,7 @@ public class AudioManager : MonoBehaviour
     public void toggleSFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        PlayerPrefs.SetFloat("sfxIsOn", s.source.volume);
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
