@@ -41,8 +41,12 @@ public class AudioManager : MonoBehaviour
         
         if (!musicOn) Music.volume = 0f;
         else if (musicOn) Music.volume = 0.1f;
-        if (!sfxOn) Player.volume = 0f;
-        else if (sfxOn) Player.volume = 0.2f;
+        if (SceneManager.GetActiveScene().name == "1_GameLevel")
+        {
+            if (!sfxOn) Player.volume = 0f;
+            else if (sfxOn) Player.volume = 0.2f;
+        }
+
     }
     
     public void toggleMusic(string name)

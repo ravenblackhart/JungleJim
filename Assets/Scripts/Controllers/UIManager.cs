@@ -92,15 +92,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        if (audioManager.musicOn) musicState.isOn = true;
-        else if (!audioManager.musicOn) musicState.isOn = false;
-
-        if (audioManager.sfxOn) sfxState.isOn = true;
-        else if (!audioManager.sfxOn) sfxState.isOn = false; 
-    }
-
     public void Update()
     {
         if (animatePanel && elapsedAnimDuration < animationDuration)
@@ -155,6 +146,10 @@ public class UIManager : MonoBehaviour
         if (panel == settingsPanel)
         {
             setUID.text = PlayerPrefs.GetString("Username");
+            if (audioManager.musicOn) musicState.isOn = true;
+            else musicState.isOn = false;
+            if (audioManager.sfxOn) sfxState.isOn = true;
+            else sfxState.isOn = false;
         }
     }
 

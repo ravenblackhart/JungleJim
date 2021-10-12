@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
     
     startPosition = this.transform.position;
     finalScore = uiManager.FinalScoreText;
-    Debug.Log($"Previous Highscore {PlayerPrefs.GetFloat("High Score")}");
   }
 
   private void Update()
