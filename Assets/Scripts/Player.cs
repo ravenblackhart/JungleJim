@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
   private bool isJumping = false;
   private bool facingRight = true;
   private bool isGrounded;
-  private bool isDead;
   private float horizontalMovment;
   
   
@@ -42,11 +41,7 @@ public class Player : MonoBehaviour
 
   private TextMeshProUGUI finalScore;
   private PlayFabManager playFab;
-  private AudioManager audioManager;
-  private AudioSource audioSource;
-
-
-
+  
   private void Awake()
   {
     _camera = Camera.main ;
@@ -55,11 +50,9 @@ public class Player : MonoBehaviour
 
   private void Start()
   {
-    isDead = false;
+    
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
-    audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-    audioSource = gameObject.GetComponent<AudioSource>();
     scoreText = uiManager.DistanceText; 
     
     startPosition = this.transform.position;
@@ -111,8 +104,7 @@ public class Player : MonoBehaviour
     //Dead Check
     cameraviewleft = _camera.ViewportToWorldPoint(new Vector3(0f, 0f, _camera.transform.position.y));
     if (rb.position.y < minY || rb.position.x < cameraviewleft.x) // dead if player get hit by the camera in the back or falls off the map
-    { 
-      isDead = true;
+    {
       OnDead();
     }
   }
