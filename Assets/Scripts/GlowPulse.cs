@@ -12,7 +12,7 @@ public class GlowPulse : MonoBehaviour
     
     void Update()
     {
-        glowSize = 1 + (Mathf.Sin(Time.time / PulseSpeed) * GlowModerator);
+        glowSize = (1 + (Mathf.Sin(Time.time / PulseSpeed) )* GlowModerator);
 
         transform.localScale = new Vector2(glowSize, glowSize);
     }
