@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using PlayFab; 
 using PlayFab.ClientModels;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayFabManager : MonoBehaviour
 {
     public GameObject rowPrefab;
-    public Transform rowsParent;
+    [CanBeNull] public Transform rowsParent;
 
     private void Start()
     {
@@ -20,7 +22,7 @@ public class PlayFabManager : MonoBehaviour
 
     private void Update()
     {
-        if (rowsParent == null)
+        if (SceneManager.GetActiveScene().name == "0_MainMenu" && rowsParent == null)
         {
             rowsParent = GameObject.FindGameObjectWithTag("LeaderTable").GetComponent<Transform>();
         }

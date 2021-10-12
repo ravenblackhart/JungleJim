@@ -41,7 +41,9 @@ public class Player : MonoBehaviour
   private float distanceMoved;
 
   private TextMeshProUGUI finalScore;
-  private PlayFabManager m_playFab;
+  private PlayFabManager playFab;
+  private NewAudioManager audioManager;
+  private AudioSource audioSource;
 
 
 
@@ -55,7 +57,9 @@ public class Player : MonoBehaviour
   {
     isDead = false;
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
-    m_playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
+    playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
+    audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<NewAudioManager>();
+    audioSource = gameObject.GetComponent<AudioSource>();
     scoreText = uiManager.DistanceText; 
     
     startPosition = this.transform.position;
@@ -84,7 +88,7 @@ public class Player : MonoBehaviour
     {
       
       isJumping = true;
-      FindObjectOfType<AudioManager>().Play("Jump");
+      FindObjectOfType<NewAudioManager>().PlaySFX("Jump");
     }
     
 
@@ -151,7 +155,7 @@ public class Player : MonoBehaviour
     if (currentScore > prevHighscore)
     {
       PlayerPrefs.SetFloat("High Score", currentScore);
-      m_playFab.SendLeaderboard((int) distanceMoved);
+      playFab.SendLeaderboard((int) distanceMoved);
     }
     
     uiManager.GameOver();
