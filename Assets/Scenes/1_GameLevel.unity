@@ -762,6 +762,7 @@ MonoBehaviour:
   - {fileID: 785819756578527156, guid: 5f9c42e1b18e76a41b9226fbaae449dc, type: 3}
   - {fileID: 4473510012427433128, guid: b51caee956130d54a91968e2b399caf5, type: 3}
   - {fileID: 689570069491245611, guid: fd48ee00417836947a975dddf472f9b9, type: 3}
+  - {fileID: 3386496491285447527, guid: 089ff804aff0ace4daddb2515d0bf88f, type: 3}
   nextLevelPosition: {x: 17, y: 0, z: 0}
   player: {fileID: 1840060289}
   levelDrawDistance: 40
@@ -2204,6 +2205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1961373540, guid: dca1a6fdb96e0a944adc9435fa55c18e, type: 3}
+      propertyPath: SFXSounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7409f2e7a1e141a4381acad494d99e05, type: 3}
     - target: {fileID: 1961373540, guid: dca1a6fdb96e0a944adc9435fa55c18e, type: 3}
       propertyPath: SFXSounds.Array.data[0].volume
       value: 0.5
