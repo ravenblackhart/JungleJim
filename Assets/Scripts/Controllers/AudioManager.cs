@@ -29,12 +29,7 @@ public class AudioManager : MonoBehaviour
         }
 
     }
-
-    private void Start()
-    {
-        throw new NotImplementedException();
-    }
-
+    
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "1_GameLevel")
@@ -45,9 +40,9 @@ public class AudioManager : MonoBehaviour
         else Player = null;
         
         if (!musicOn) Music.volume = 0f;
-        else if (musicOn) Music.volume = 0.3f;
+        else if (musicOn) Music.volume = 0.1f;
         if (!sfxOn) Player.volume = 0f;
-        else if (sfxOn) Player.volume = 0.5f;
+        else if (sfxOn) Player.volume = 0.2f;
     }
     
     public void toggleMusic(string name)
@@ -86,14 +81,14 @@ public class AudioManager : MonoBehaviour
         if (sfxOn)
         {
             PlayerPrefs.SetFloat("musicIsOn", 0);
-            Music.volume = 0f;
+            Player.volume = 0f;
             musicOn = false;
         }
         
         else if (!sfxOn)
         {
             PlayerPrefs.SetFloat("musicIsOn", 1);
-            Music.volume = 0.1f;
+            Player.volume = 0.2f;
             musicOn = true;
         }
 
