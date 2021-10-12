@@ -111,10 +111,9 @@ public class Player : MonoBehaviour
     //Dead Check
     cameraviewleft = _camera.ViewportToWorldPoint(new Vector3(0f, 0f, _camera.transform.position.y));
     if (rb.position.y < minY || rb.position.x < cameraviewleft.x) // dead if player get hit by the camera in the back or falls off the map
-    {
+    { 
       isDead = true;
       OnDead();
-      Debug.Log("dead");
     }
   }
 
