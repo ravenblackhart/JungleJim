@@ -4,16 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab; 
 using PlayFab.ClientModels;
+using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayFabManager : MonoBehaviour
 {
     public GameObject rowPrefab;
-    public GameObject rowsParent;
+    public Transform rowsParent;
 
     private void Start()
     {
         LoginPlayFab();
+        
+    }
+
+    private void Update()
+    {
+        if (rowsParent == null)
+        {
+            rowsParent = GameObject.FindGameObjectWithTag("LeaderTable").GetComponent<Transform>();
+        }
     }
 
     void LoginPlayFab()
@@ -21,19 +31,43 @@ public class PlayFabManager : MonoBehaviour
         var request = new LoginWithCustomIDRequest()
         {
             CustomId = SystemInfo.deviceUniqueIdentifier,
-            CreateAccount = true
+            CreateAccount = true, 
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams()
+            {
+                GetPlayerProfile = true
+            }
         };
         
         PlayFabClientAPI.LoginWithCustomID(request, OnSuccess, OnError);
     }
 
-    void OnSuccess(LoginResult result) => Debug.Log($"Login Successful");
+    void OnSuccess(LoginResult result)
+    {
+        Debug.Log($"Login Successful");
+        string name = null;
+        if(result.InfoResultPayload.PlayerProfile != null)
+            name = result.InfoResultPayload.PlayerProfile.DisplayName;
+    } 
 
     void OnError(PlayFabError error)
     {
         Debug.Log($"Error while logging in");
         Debug.Log(error.GenerateErrorReport());
     }
+
+    public void SavePlayerID()
+     {
+         var request = new UpdateUserTitleDisplayNameRequest()
+         {
+             DisplayName = PlayerPrefs.GetString("Username")
+         };
+         PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnPlayerIDSaved, OnError);
+     }
+
+    void OnPlayerIDSaved(UpdateUserTitleDisplayNameResult result)
+    {
+        Debug.Log($"User ID is now {result}");
+    } 
 
     public void SendLeaderboard(int score)
     {
@@ -66,9 +100,18 @@ public class PlayFabManager : MonoBehaviour
 
     void OnLeaderboardGet(GetLeaderboardResult result)
     {
+        if (rowsParent.childCount > 0)
+        {
+            foreach (Transform item in rowsParent) Destroy(item.gameObject);
+        }
+
         foreach (var item in result.Leaderboard)
         {
-            Debug.Log($"{item.Position} , {item.PlayFabId} , Score:{item.StatValue}");
+            GameObject newRow = Instantiate(rowPrefab, rowsParent);
+            TextMeshProUGUI[] rowTexts = newRow.GetComponentsInChildren<TextMeshProUGUI>();
+            rowTexts[0].text = (item.Position + 1).ToString();
+            rowTexts[1].text = item.DisplayName;
+            rowTexts[2].text = item.StatValue.ToString();
         }
     }
 
