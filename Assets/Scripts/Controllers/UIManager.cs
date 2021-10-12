@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] [CanBeNull] public TextMeshProUGUI DistanceText;
 
     [Header("In-game UI - Canvases")] 
+    [SerializeField] [CanBeNull] private Canvas readyPanel;
     [SerializeField] [CanBeNull] private Canvas pausePanel;
     [SerializeField] [CanBeNull] private Canvas gameOverPanel;
     [SerializeField] [CanBeNull] public TextMeshProUGUI FinalScoreText;
@@ -83,6 +84,7 @@ public class UIManager : MonoBehaviour
         {
             gameScreen.enabled = true;
             HUD.enabled = true;
+            readyPanel.enabled = false;
             pausePanel.enabled = false;
             gameOverPanel.enabled = false;
         }
@@ -241,6 +243,13 @@ public class UIManager : MonoBehaviour
 
     #region In-Game UI Functions
 
+    public void ReadyGame()
+    {
+        readyPanel.enabled = true;
+        targetPosition.Set(posXIn, posYIn);
+        SlidePanel(readyPanel);
+        Time.timeScale = 0.0f;
+    }
     public void PauseGame()
     {
         if (!pausePanel.enabled && !gameOverPanel.enabled)
