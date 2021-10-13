@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1616,9 +1616,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca2544672b10214baeaa2d258738a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlowModerator: 1
-  SpreadSpeed: 2
-  colorSpeed: 5
+  GlowModerator: 0.5
+  SpreadSpeed: 1
+  colorSpeed: 1
   color1:
     serializedVersion: 2
     rgba: 3154116863
@@ -2420,7 +2420,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5536870107898468912, guid: fd48ee00417836947a975dddf472f9b9, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 358643308}
+    m_RemovedComponents:
+    - {fileID: 5536870107898468912, guid: fd48ee00417836947a975dddf472f9b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd48ee00417836947a975dddf472f9b9, type: 3}
 --- !u!95 &1711490547 stripped
 Animator:
