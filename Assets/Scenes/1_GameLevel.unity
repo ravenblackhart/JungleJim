@@ -1605,9 +1605,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca2544672b10214baeaa2d258738a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlowModerator: 1
-  SpreadSpeed: 2
-  colorSpeed: 5
+  GlowModerator: 0.5
+  SpreadSpeed: 1
+  colorSpeed: 1
   color1:
     serializedVersion: 2
     rgba: 3154116863
