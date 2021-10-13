@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("Main Menu - Canvases")] 
     [SerializeField] [CanBeNull] private Canvas settingsPanel;
     [SerializeField] [CanBeNull] private Canvas creditsPanel;
+    [SerializeField] [CanBeNull] private Canvas controlsPanel;
     [SerializeField] [CanBeNull] private Canvas leaderboardPanel;
     [SerializeField] [CanBeNull] private Toggle musicState;
     [SerializeField] [CanBeNull] private Toggle sfxState;
@@ -81,6 +82,7 @@ public class UIManager : MonoBehaviour
             settingsPanel.enabled = false;
             saveMessage.enabled = false;
             creditsPanel.enabled = false;
+            controlsPanel.enabled = false;
             leaderboardPanel.enabled = false;
         }
 

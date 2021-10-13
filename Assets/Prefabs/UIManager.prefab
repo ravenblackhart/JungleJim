@@ -47,6 +47,7 @@ MonoBehaviour:
   gameScreen: {fileID: 3952879706543473098, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
+  controlsPanel: {fileID: 0}
   leaderboardPanel: {fileID: 0}
   musicState: {fileID: 0}
   sfxState: {fileID: 0}
