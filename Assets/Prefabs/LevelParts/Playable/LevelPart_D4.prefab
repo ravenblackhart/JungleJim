@@ -2460,6 +2460,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4944681967967471366, guid: 6b4b622110ead82458f4c08f76630349, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7274714049650059717, guid: 6b4b622110ead82458f4c08f76630349, type: 3}
       propertyPath: m_RootOrder
       value: 12

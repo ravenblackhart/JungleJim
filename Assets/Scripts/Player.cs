@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
   
   private Rigidbody2D rb;
   private bool isJumping = false;
-  private bool facingRight = true;
+  public bool facingRight = true;
   private bool isGrounded;
   private float horizontalMovment;
   
