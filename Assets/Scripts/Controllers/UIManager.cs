@@ -44,9 +44,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] [CanBeNull] private Canvas pausePanel;
     [SerializeField] [CanBeNull] private Canvas gameOverPanel;
     [SerializeField] [CanBeNull] public TextMeshProUGUI FinalScoreText;
+    [SerializeField] [CanBeNull] public TextMeshProUGUI ReadyText;
 
     [Header("UI Animation Settings")] 
     [SerializeField] private float animationDuration = 5f;
+
+    [SerializeField] private float timeOffset = 8f;
 
     #endregion
 
@@ -249,6 +252,25 @@ public class UIManager : MonoBehaviour
         targetPosition.Set(posXIn, posYIn);
         SlidePanel(readyPanel);
         Time.timeScale = 0.0f;
+
+        timeOffset -= 1 * Time.unscaledDeltaTime;
+
+        if (timeOffset <= 6) ReadyText.text = "Ready";
+        if (timeOffset <= 4 ) ReadyText.text = "Set"; 
+        if (timeOffset <= 2 )
+        {
+            ReadyText.color = new Color32(20, 225, 1, 255);
+            ReadyText.fontSize = 250; 
+            ReadyText.text = "GO!!!";
+        }
+       if (timeOffset <= 0)
+        {
+            targetPosition.Set(posXOut, posYOut);
+            SlidePanel(readyPanel);
+            readyPanel.enabled = false;
+        }
+
+        if (timeOffset <= -1 ) Time.timeScale = 1f;
     }
     public void PauseGame()
     {
