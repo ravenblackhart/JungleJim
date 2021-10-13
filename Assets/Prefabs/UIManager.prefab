@@ -55,7 +55,9 @@ MonoBehaviour:
   leaderTable: {fileID: 0}
   HUD: {fileID: 0}
   DistanceText: {fileID: 0}
+  readyPanel: {fileID: 0}
   pausePanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   FinalScoreText: {fileID: 0}
+  ReadyText: {fileID: 0}
   animationDuration: 3

@@ -48,8 +48,7 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Animation Settings")] 
     [SerializeField] private float animationDuration = 5f;
-
-    [SerializeField] private float timeOffset = 5f;
+    
 
     #endregion
 
@@ -61,6 +60,8 @@ public class UIManager : MonoBehaviour
 
     private float elapsedAnimDuration = 0;
     private float percentAnim;
+    private float timeOffset = 5f;
+    
     private Vector2 startPosition;
     private Vector2 targetPosition;
 
