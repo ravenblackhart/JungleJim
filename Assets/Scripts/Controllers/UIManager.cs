@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Animation Settings")] 
     [SerializeField] private float animationDuration = 5f;
 
-    [SerializeField] private float timeOffset = 8f;
+    [SerializeField] private float timeOffset = 5f;
 
     #endregion
 
@@ -255,22 +255,22 @@ public class UIManager : MonoBehaviour
 
         timeOffset -= 1 * Time.unscaledDeltaTime;
 
-        if (timeOffset <= 6) ReadyText.text = "Ready";
-        if (timeOffset <= 4 ) ReadyText.text = "Set"; 
+        if (timeOffset <= 4) ReadyText.text = "Ready";
+        if (timeOffset <= 3 ) ReadyText.text = "Set"; 
         if (timeOffset <= 2 )
         {
             ReadyText.color = new Color32(20, 225, 1, 255);
             ReadyText.fontSize = 250; 
             ReadyText.text = "GO!!!";
         }
-       if (timeOffset <= 0)
+       if (timeOffset <= 1)
         {
             targetPosition.Set(posXOut, posYOut);
             SlidePanel(readyPanel);
             readyPanel.enabled = false;
         }
 
-        if (timeOffset <= -1 ) Time.timeScale = 1f;
+        if (timeOffset <= 0 ) Time.timeScale = 1f;
     }
     public void PauseGame()
     {
