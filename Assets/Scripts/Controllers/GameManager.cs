@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     [Header("Controller Scripts")] 
-    [SerializeField] private OldAudioManager oldAudioManagerPrefab;
+    [SerializeField] private AudioManager AudioManagerPrefab;
     [SerializeField] private UIManager uiManagerPrefab;
 
     private UIManager uiManager;
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         
         else if (mam.Length < 1)
         {
-            Instantiate(oldAudioManagerPrefab);
+            Instantiate(AudioManagerPrefab);
         }
 
         #endregion

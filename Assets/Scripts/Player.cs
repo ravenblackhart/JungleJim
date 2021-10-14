@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
   
   private Vector3 cameraviewleft;
   private Camera _camera;
-  
-  
+
+  private AudioManager audioManager;
   
   
   //for Scoring 
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     
     uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     playFab = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayFabManager>();
+    audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     scoreText = uiManager.DistanceText; 
     
     startPosition = this.transform.position;
@@ -79,7 +80,7 @@ public class Player : MonoBehaviour
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
       isJumping = true;
-      FindObjectOfType<AudioManager>().PlaySFX("Jump");
+      audioManager.PlaySFX("Jump");
     }
     if (horizontalMovment > 0 && !facingRight)
     {
@@ -139,6 +140,8 @@ public class Player : MonoBehaviour
     playFab.SendLeaderboard((int) distanceMoved);
     
     uiManager.GameOver();
+    audioManager.PlaySFX("Dead");
+    audioManager.Music.Stop();
   }
   
 
