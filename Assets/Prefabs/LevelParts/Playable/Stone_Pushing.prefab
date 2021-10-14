@@ -1154,6 +1154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameSprites_1-01_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7385999183034739369, guid: 17216069a57860247ad7b00cec20a7d1, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 180
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17216069a57860247ad7b00cec20a7d1, type: 3}
 --- !u!4 &1024646553900405780 stripped
