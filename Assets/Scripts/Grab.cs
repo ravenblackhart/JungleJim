@@ -9,12 +9,14 @@ public class Grab : MonoBehaviour
   [SerializeField] private Camera mainCamera;
   [SerializeField] private LineRenderer lineRenderer;
   [SerializeField] private DistanceJoint2D distanceJoint;
-  
   [SerializeField] private float grablength;
   
-
+  private Vector2 tailposition;
+  private float offsettail = 0.7f;
+  private Player player;
   void Start()
   {
+    player = GetComponent<Player>();
     distanceJoint.enabled = false;
     lineRenderer.enabled = false;
   }
@@ -22,6 +24,16 @@ public class Grab : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    
+    if (player.facingRight)
+    {
+      tailposition = new Vector2(transform.localPosition.x - offsettail, transform.position.y);
+    }
+
+    if (!player.facingRight)
+    {
+      tailposition = new Vector2(transform.localPosition.x + offsettail, transform.position.y);
+    }
     
     if (Input.GetKeyDown(KeyCode.Mouse0))
     {
@@ -38,18 +50,21 @@ public class Grab : MonoBehaviour
         Vector2 hitPoint = hit.point;
         Vector2 characterPos = new Vector2(transform.position.x, transform.position.y);
         Vector2 difference = hitPoint - characterPos;
+       
 
 
         if (difference.magnitude <= grablength)
         {
           FindObjectOfType<AudioManager>().PlaySFX("Snake"); 
           lineRenderer.SetPosition(0, hitPoint);
-          lineRenderer.SetPosition(1, transform.position);
-
+          lineRenderer.SetPosition(1, tailposition);
+          
           
           distanceJoint.connectedAnchor = hit.point; // set the anchorpoint to hit.point
           distanceJoint.enabled = true;
           lineRenderer.enabled = true;
+          lineRenderer.startWidth = 0.01f;
+          lineRenderer.endWidth = 0.3f;
         }
       }
       else
@@ -65,7 +80,7 @@ public class Grab : MonoBehaviour
 
     if (distanceJoint.enabled)
     {
-      lineRenderer.SetPosition(1, transform.position); // so the line follows the character
+      lineRenderer.SetPosition(1, tailposition); // so the line follows the character
     }
   }
 }
