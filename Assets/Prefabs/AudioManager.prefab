@@ -154,11 +154,5 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  - name: Dead
-    clip: {fileID: 0}
-    volume: 0.5
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
   musicOn: 1
   sfxOn: 1

@@ -140,8 +140,7 @@ public class Player : MonoBehaviour
     playFab.SendLeaderboard((int) distanceMoved);
     
     uiManager.GameOver();
-    audioManager.PlaySFX("Dead");
-    audioManager.Music.Stop();
+
   }
   
 
