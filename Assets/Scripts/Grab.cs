@@ -25,7 +25,7 @@ public class Grab : MonoBehaviour
   void Update()
   {
     
-    if (player.facingRight)
+    if (player.facingRight) //So the tail/grab is on the right place when changing left & right
     {
       tailposition = new Vector2(transform.localPosition.x - offsettail, transform.position.y);
     }
@@ -53,7 +53,7 @@ public class Grab : MonoBehaviour
        
 
 
-        if (difference.magnitude <= grablength)
+        if (difference.magnitude <= grablength) //if we are in length to grab
         {
           FindObjectOfType<AudioManager>().PlaySFX("Snake"); 
           lineRenderer.SetPosition(0, hitPoint);
@@ -66,10 +66,6 @@ public class Grab : MonoBehaviour
           lineRenderer.startWidth = 0.01f;
           lineRenderer.endWidth = 0.3f;
         }
-      }
-      else
-      {
-        Debug.Log("you missed");
       }
     }
     else if (Input.GetKeyUp(KeyCode.Mouse0))
