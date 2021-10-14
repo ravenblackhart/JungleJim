@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("Main Menu - Canvases")] 
     [SerializeField] [CanBeNull] private Canvas settingsPanel;
     [SerializeField] [CanBeNull] private Canvas creditsPanel;
+    [SerializeField] [CanBeNull] private Canvas controlsPanel;
     [SerializeField] [CanBeNull] private Canvas leaderboardPanel;
     [SerializeField] [CanBeNull] private Toggle musicState;
     [SerializeField] [CanBeNull] private Toggle sfxState;
@@ -40,12 +41,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] [CanBeNull] public TextMeshProUGUI DistanceText;
 
     [Header("In-game UI - Canvases")] 
+    [SerializeField] [CanBeNull] private Canvas readyPanel;
     [SerializeField] [CanBeNull] private Canvas pausePanel;
     [SerializeField] [CanBeNull] private Canvas gameOverPanel;
     [SerializeField] [CanBeNull] public TextMeshProUGUI FinalScoreText;
+    [SerializeField] [CanBeNull] public TextMeshProUGUI ReadyText;
 
     [Header("UI Animation Settings")] 
     [SerializeField] private float animationDuration = 5f;
+    
 
     #endregion
 
@@ -57,6 +61,8 @@ public class UIManager : MonoBehaviour
 
     private float elapsedAnimDuration = 0;
     private float percentAnim;
+    private float timeOffset = 5f;
+    
     private Vector2 startPosition;
     private Vector2 targetPosition;
 
@@ -76,6 +82,7 @@ public class UIManager : MonoBehaviour
             settingsPanel.enabled = false;
             saveMessage.enabled = false;
             creditsPanel.enabled = false;
+            controlsPanel.enabled = false;
             leaderboardPanel.enabled = false;
         }
 
@@ -83,6 +90,7 @@ public class UIManager : MonoBehaviour
         {
             gameScreen.enabled = true;
             HUD.enabled = true;
+            readyPanel.enabled = false;
             pausePanel.enabled = false;
             gameOverPanel.enabled = false;
         }
@@ -241,6 +249,32 @@ public class UIManager : MonoBehaviour
 
     #region In-Game UI Functions
 
+    public void ReadyGame()
+    {
+        readyPanel.enabled = true;
+        targetPosition.Set(posXIn, posYIn);
+        SlidePanel(readyPanel);
+        Time.timeScale = 0.0f;
+
+        timeOffset -= 1 * Time.unscaledDeltaTime;
+
+        if (timeOffset <= 4) ReadyText.text = "Ready";
+        if (timeOffset <= 3 ) ReadyText.text = "Set"; 
+        if (timeOffset <= 2 )
+        {
+            ReadyText.color = new Color32(20, 225, 1, 255);
+            ReadyText.fontSize = 250; 
+            ReadyText.text = "GO!!!";
+        }
+       if (timeOffset <= 1)
+        {
+            targetPosition.Set(posXOut, posYOut);
+            SlidePanel(readyPanel);
+            readyPanel.enabled = false;
+        }
+
+        if (timeOffset <= 0 ) Time.timeScale = 1f;
+    }
     public void PauseGame()
     {
         if (!pausePanel.enabled && !gameOverPanel.enabled)
