@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         
         if (SceneManager.GetActiveScene().name == "1_GameLevel")
         {
-            uiManager.ReadyGame();
+           uiManager.ReadyGame();
         }
     }
 }
