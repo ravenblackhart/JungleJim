@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1839168962606527963}
   - component: {fileID: 4717620386960952299}
   - component: {fileID: 2057716608494796605}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5899228877002443566}
   - component: {fileID: 4465954872211741931}
   - component: {fileID: 5678442256767893417}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Environment_2_19
   m_TagString: Stone
   m_Icon: {fileID: 0}
