@@ -12,7 +12,7 @@ public class Grab : MonoBehaviour
   [SerializeField] private float grablength;
   
   private Vector2 tailposition;
-  private float offsettail = 0.7f;
+  private float offsettail = 0.6f;
   private Player player;
   void Start()
   {
