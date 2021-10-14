@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
     private float elapsedAnimDuration = 0;
     private float percentAnim;
     private float timeOffset = 5f;
+    private bool gameOn = false;
     
     private Vector2 startPosition;
     private Vector2 targetPosition;
@@ -74,10 +75,11 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        Time.timeScale = 1.0f;
+        
         
         if (SceneManager.GetActiveScene().name == "0_MainMenu")
         {
+            Time.timeScale = 1.0f;
             homeScreen.enabled = true;
             settingsPanel.enabled = false;
             saveMessage.enabled = false;
@@ -88,6 +90,7 @@ public class UIManager : MonoBehaviour
 
         else if (SceneManager.GetActiveScene().name != "0_MainMenu")
         {
+            Time.timeScale = 0.0f;
             gameScreen.enabled = true;
             HUD.enabled = true;
             readyPanel.enabled = false;
@@ -123,6 +126,12 @@ public class UIManager : MonoBehaviour
             }
 
         }
+        
+        if (SceneManager.GetActiveScene().name == "1_GameLevel" && !gameOn)
+        {
+            ReadyGame();
+        }
+
     }
     
 
@@ -248,7 +257,6 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region In-Game UI Functions
-
     public void ReadyGame()
     {
         readyPanel.enabled = true;
@@ -273,11 +281,17 @@ public class UIManager : MonoBehaviour
             readyPanel.enabled = false;
         }
 
-        if (timeOffset <= 0 ) Time.timeScale = 1f;
+       if (timeOffset <= 0)
+       {
+           Time.timeScale = 1f;
+           gameOn = true;
+       }
+           
+
     }
     public void PauseGame()
     {
-        if (!pausePanel.enabled && !gameOverPanel.enabled)
+        if (!pausePanel.enabled && !gameOverPanel.enabled && gameOn)
         {
             pausePanel.enabled = true;
             targetPosition.Set(posXIn, posYIn);

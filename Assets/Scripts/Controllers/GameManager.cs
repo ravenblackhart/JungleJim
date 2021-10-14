@@ -65,14 +65,5 @@ public class GameManager : MonoBehaviour
 
         #endregion
     }
-
-    private void Update()
-    {
-        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
-        
-        if (SceneManager.GetActiveScene().name == "1_GameLevel")
-        {
-           uiManager.ReadyGame();
-        }
-    }
+    
 }
