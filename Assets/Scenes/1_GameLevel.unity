@@ -369,6 +369,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &93288667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3420746149880036977, guid: 82cd6125488bc6e47bf5c188cc6ba354, type: 3}
+  m_PrefabInstance: {fileID: 1866697264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &93288668
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93288667}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.8000001, y: 0}
+  - {x: -0.25599766, y: -1.9220123}
+  - {x: 1.8000001, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &238812187
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,6 +2299,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6549744825337335969, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549744825337335969, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549744825337335969, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549744825337335969, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9186991967352866715, guid: 06614dfcf05902e4ebf482f4e15ec333, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2634,7 +2678,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starter_LVL
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4740196787211492967, guid: 82cd6125488bc6e47bf5c188cc6ba354, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 82cd6125488bc6e47bf5c188cc6ba354, type: 3}
 --- !u!4 &1883537270 stripped
 Transform:
