@@ -13,8 +13,7 @@ public class Background : MonoBehaviour
     void Start()
     {
         startpos = transform.position.x;
-        lenght = GetComponent<SpriteRenderer>().bounds.size.x; // lenghts of the sprites
-
+        lenght = GetComponent<SpriteRenderer>().bounds.size.x; // length of the sprites
     }
 
     // Update is called once per frame
