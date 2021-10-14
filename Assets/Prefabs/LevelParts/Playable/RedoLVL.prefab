@@ -870,7 +870,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 7
   m_Sprite: {fileID: 8563706914918368813, guid: 05b3bc5ed3d00d748b4da694686fd99f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2603,6 +2603,7 @@ Transform:
   - {fileID: 8110094801222064649}
   - {fileID: 1936842878890585738}
   - {fileID: 7386960442054517687}
+  - {fileID: 3420919532231161211}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4896,6 +4897,72 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6100004, y: 2.2328434}
   m_EdgeRadius: 0
+--- !u!1001 &47778437008465504
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5663574196901634442}
+    m_Modifications:
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_RootOrder
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.74762946
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.66411614
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 83.229
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672436624721254760, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_Name
+      value: Environment_2_22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768565238160985781, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+--- !u!4 &3420919532231161211 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3445308744979016475, guid: a26d9996f52975743bb9d49a9c74a659, type: 3}
+  m_PrefabInstance: {fileID: 47778437008465504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &86135341371209336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5645,7 +5712,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameSprites_1-01_0 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7385999183034739369, guid: 17216069a57860247ad7b00cec20a7d1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17216069a57860247ad7b00cec20a7d1, type: 3}
 --- !u!4 &7386960442054517687 stripped
 Transform:
