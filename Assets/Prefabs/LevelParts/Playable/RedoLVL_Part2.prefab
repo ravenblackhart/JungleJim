@@ -864,13 +864,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.6113452, y: 1.4274931}
+  - {x: -1.4967766, y: 1.4809799}
   - {x: -1.8214216, y: 0.94535446}
   - {x: -1.4527197, y: 0.36445665}
   - {x: 1.5412693, y: 0.46216488}
   - {x: 1.8176084, y: 1.1290197}
   - {x: 1.5979538, y: 1.4940629}
-  - {x: -1.6192151, y: 1.4373255}
+  - {x: -30.386545, y: 1.4754701}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -978,6 +978,7 @@ EdgeCollider2D:
   - {x: -1.8214216, y: 0.94535446}
   - {x: -1.4527197, y: 0.36445665}
   - {x: 1.5412693, y: 0.46216488}
+  - {x: 1.5692763, y: 0.52975035}
   - {x: 1.8176084, y: 1.1290197}
   - {x: 1.5979538, y: 1.4940629}
   - {x: -1.6192151, y: 1.4373255}
@@ -1368,7 +1369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374596580432006033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.023219, y: 1.95, z: 0}
+  m_LocalPosition: {x: 7.023219, y: 1.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 785819756578527156}
